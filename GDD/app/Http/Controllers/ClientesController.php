@@ -10,6 +10,6 @@ class ClientesController extends Controller
     public function getClientes()
     {
         $arrayClientes = Cliente::all();
-        return view('layouts.clientes',array('arrayClientes'=> $arrayClientes));
+        return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
 }

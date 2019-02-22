@@ -10,7 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'ClientesController@getClientes')->name('Listado Clientes');
 
-Route::get('/', function () {
-    return view('welcome');
-});
