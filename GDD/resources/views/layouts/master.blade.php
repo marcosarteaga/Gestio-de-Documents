@@ -6,10 +6,6 @@
 	<title>GDD</title>
 </head>
 <body>
-	<div class="w3-container w3-teal" >
-		<h1 align="center" >Proyecto Gestión de Documentos</h1>
-	</div>
-	<div></div>
 
 </body>
 </html>
