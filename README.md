@@ -18,6 +18,7 @@ C.P.
 
 cuando clones dentro del GDD:
 sudo composer install
+crear fichero .env
 php artisan migrate ("mira el fichero .env el nombre de la base")
 php artisan serve
 
