@@ -1,18 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
+<button onclick="error('errorMysql','Texto de ejemplo')">Ejemplo Error</button>
 <h1>Clientes</h1>
-<ul class="list-group">
-   @foreach( $arrayClientes as $key => $Cliente )
-    <li class="list-group-item">
-        <a href="#"><!--{{ URL::asset('/catalog/show/'.$Cliente->id) }}-->
-            <h5>
-                {{$Cliente->Nom}}
-            </h5>
-        </a>
-    </li>
-    @endforeach
-
-</ul>
-	
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">NIF</th>
+            <th scope="col">CP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--
+        <tr href="#">
+            <th>ejemplo</th>
+            <th>ejemplo 2</th>
+            <th>ejemplo 3</th>
+            
+        </tr>
+    -->
+        <script>
+            var arrayPHP = '{{$arrayClientes}}';
+            datos_json = JSON.parse(arrayPHP.replace(/&quot;/g,'"'));
+            newlist(datos_json,"Clientes");
+        </script>
+    </tbody>
+<!--pasamos todo el array-->
+</table>	
 @stop
