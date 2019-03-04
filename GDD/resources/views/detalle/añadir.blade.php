@@ -24,7 +24,7 @@
 	echo "<div class='page-header'><h1 align='center' >Añadir Clientes</h1></div>";
 
 	
-	echo "<form method='post'  action='{{ url('detalle/insertat.blade.php') }}' >";
+	echo "<form method='post' >";
 	echo "<div class='input-group'>";
 	echo "<span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>";
 	echo "<input type='text' class='form-control' name='Nombre' placeholder='NOMBRE'><br>";
@@ -51,6 +51,12 @@
 	echo "<div class='input-group'>";
 	echo "<span class='input-group-addon'><i class='glyphicon glyphicon-earphone'></i></span>";
 	echo "<input type='text' name='telef'  class='form-control' placeholder='TELEFONO'><br>";
+	echo "</div>";
+
+
+	echo "<div class='input-group'>";
+	echo "<span class='input-group-addon'><i class='glyphicon glyphicon-home'></i></span>";
+	echo "<input type='text' name='direc'  class='form-control' placeholder='DIRECCION'><br>";
 	echo "</div>";
 
 	
