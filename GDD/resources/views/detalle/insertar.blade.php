@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<?php  
+
+@php
 	$conn = mysqli_connect('localhost','xus','xus123');
 	mysqli_select_db($conn, 'Gestion');
 	$nombre=$_POST["Nombre"];
@@ -19,11 +14,6 @@
 	$insert="INSERT INTO clientes (Nom, Cognom, Email, Telefon, NIF,Provincia,Localidad,CP  VALUES ($nombre, $apellido, $nif,$mail,$telefono,$provincia,$localidad,$codigop)";
 	$resultatem = mysqli_query($conn, $insert);
 	echo "hola estoy intentado insertar";
-		
+@endphp	
 
 
-	?>
-
-</body>
-
-</html>

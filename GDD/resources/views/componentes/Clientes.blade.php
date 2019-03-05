@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<button onclick="error('errorMysql','Texto de ejemplo')">Ejemplo Error</button>
+<button onclick="error('errorMysql','ESTO ES UN ERROR !!!')">Ejemplo Error</button>
 <h1>Clientes</h1>
 <hr>
 <table class="table">

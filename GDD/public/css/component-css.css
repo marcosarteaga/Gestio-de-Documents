@@ -1,3 +1,15 @@
 a{
     text-decoration: none!important;
 }
+.input-group{
+    width: 50% !important;
+    margin: auto !important;
+
+}
+.input-bt{
+    margin-left: 45%;
+}
+.globalError{
+    background-color: yellow;
+    color: red;
+}
