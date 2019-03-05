@@ -19,7 +19,7 @@ class ClientesController extends Controller
     public function showClient($id)
     {
         $cliente = Cliente::find($id);
-        return view('detalle.Cliente',array('Cliente'=>$Cliente));
+        return view('detalle.cliente',array('cliente'=>$cliente));
     }
     public function getInsertClient()
     {

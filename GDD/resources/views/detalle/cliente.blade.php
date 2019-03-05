@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div>
-        {{$Client['nombre']}}
+        {{$cliente->Nom}}
 </div>    
 
 @stop
