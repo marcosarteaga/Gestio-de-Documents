@@ -50,4 +50,5 @@
 				</div>
 			<button type="submit" class="btn btn-primary">Añadir</button>
 	</form>
+>>>>>>> 92e984b31b4afec9c23c786220dd862b6583abd4
 @stop

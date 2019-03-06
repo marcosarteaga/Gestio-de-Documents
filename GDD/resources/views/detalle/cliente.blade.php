@@ -4,28 +4,38 @@
 
 <table style="width:100%">
 	<tr>
-		<td>Nombre</td>
-		<td>Apellido</td>
-		<td>Email</td>
-		<td>Telefono</td>
-		<td>Direccion</td>
-		<td>NIF</td>
-		<td>Provincia</td>
-		<td>Localidad</td>
-		<td>CP</td>
+		<td><b>Nombre</b></td>
+		<td><b>Apellido</b></td>
+		<td><b>Email</b></td>
+	</tr>
+	<tr id="detalles" >
+		<td><input type="text" name="nom" value="{{$cliente->Nom}}"></td>
+		<td><input type="text" name="Cognom" value="{{$cliente->Cognom}}"></td>
+		<td><input type="text" name="email" value="{{$cliente->Email}}"></td>
 	</tr>
 	<tr>
-		<td>{{$cliente->Nom}}</td>
-		<td>{{$cliente->Cognom}}</td>
-		<td>{{$cliente->Email}}</td>
-		<td>{{$cliente->Telefon}}</td>
-		<td>{{$cliente->Direccion}}</td>
-		<td>{{$cliente->NIF}}</td>
-		<td>{{$cliente->Provincia}}</td>
-		<td>{{$cliente->Localidad}}</td>
-		<td>{{$cliente->CP}}</td>
+		<td><b>Telefono</b></td>
+		<td><b>Direccion</b></td>
+		<td><b>NIF</b></td>
+	</tr>
+	<tr id="detalles2">
+		<td><input type="number" name="telefono" value="{{$cliente->Telefon}}"></td>
+		<td><input type="text" name="direccion" value="{{$cliente->Direccion}}"></td>
+		<td><input type="text" name="nif" value="{{$cliente->NIF}}" ></td>
+	</tr>
+	<tr>
+		<td><b>Provincia</b></td>
+		<td><b>Localidad</b></td>
+		<td><b>CP</b></td>
+	</tr>
+	<tr id="detalles3">
+		<td><input type="text" name="provincia" value="{{$cliente->Provincia}}"></td>
+		<td><input type="text" name="localidad" value="{{$cliente->Localidad}}"></td>
+		<td><input type="text" name="cp" value="{{$cliente->CP}}"></td>		
 	</tr>
 </table>
+<br>
+<button onclick="modificar()" >Modificar</button>
 
 
 
