@@ -1,0 +1,7 @@
+¿Que a ido mal?
+    -Me a costado bastante el gestionar y empezar de 0 un proyecto en Laravel.
+    -Mentalizame de crear un proyecto que pueda crecer.
+    -
+¿Que podemos mejorar?
+    -Preguntar mas a profesores para que nos den una ruta para lo queremos hacer.
+    -
