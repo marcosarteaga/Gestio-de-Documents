@@ -1,77 +1,53 @@
 @extends('layouts.master')
 
 @section('content')
-	 <div class='page-header'><h1 align='center' >Añadir Clientes</h1></div> 
+<!-- Formulario Insert Cliente -->
 
-	
-	 <form method='get' action='/Clientes' > 
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span> 
-	 <input type='text' class='form-control' name='Nom' placeholder='NOMBRE'><br> 
-	 </div> 
+	 <div class='page-header'><h1 align='center' >Nuevo Cliente</h1></div> 
 
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span> 
-	 <input type='text' name='Cognom' class='form-control' placeholder='APELLIDO'><br> 
-	 </div> 
-
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span> 
-	 <input type='text' name='NIF' class='form-control' placeholder='NIF'><br> 
-	 </div> 
-
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-envelope'></i></span> 
-	 <input type='text' name='Email' class='form-control' placeholder='EMAIL'><br> 
-	 </div> 
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-earphone'></i></span> 
-	 <input type='text' name='Telefon'  class='form-control' placeholder='TELEFONO'><br> 
-	 </div> 
-
-	 <div class='input-group'>
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-home'></i></span>
-	 <input type='text' name='Direccion'  class='form-control' placeholder='DIRECCION'><br>
-	 </div>
-
-	
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-map-marker'></i></span> 
-	 <input type='text' name='Provincia' class='form-control' placeholder='PROVINCIA'><br> 
-	 </div> 
-	
-	
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-map-marker'></i></span> 
-	 <input type='text' name='Localidad' class='form-control' placeholder='LOCALIDAD'><br> 
-	 </div> 
-
-
-	 <div class='input-group'> 
-	 <span class='input-group-addon'><i class='glyphicon glyphicon-map-marker'></i></span> 
-	 <input type='text' name='CP' class='form-control' placeholder='CODIGO POSTAL'><br> 
-	 </div>
-
-	 <div class='input-group'>
-     <span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span>
-     <input id='dataModificacio' type='date' class='form-control' name='updated_at' placeholder='Data Modificació'>
-     </div>
-
-     <div class='input-group'>
-     <span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span>
-     <input id='dataModificacio' type='date' class='form-control' name='created_at' placeholder='Data Modificació'>
-     </div>
-
-
-
-
-	 <div class='input-bt'> 
-	 <input type='submit' name='btn' class='btn btn-success'> 
-	 </div> 
-	 </form> 
+	 <form method='get' action='/Clientes'>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputEmail">Nombre</label>
+					<input type="text" class="form-control" name='Nom' id="inputEmail" placeholder="Nombre">
+				</div>
+			  	<div class="form-group col-md-6">
+					<label for="inputApellidos">Apellidos</label>
+					<input type="text" class="form-control" name='Cognom' id="inputApellidos" placeholder="Apellidos">
+			  	</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="inputNif">NIF</label>
+					<input type="text" class="form-control" name='NIF' id="inputNif" placeholder="NIF">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputEmail">Correo</label>
+					<input type="email" class="form-control" name='Email' id="inputEmail" placeholder="nombre@ejemplo.com">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputTel">Telefono</label>
+					<input type="number" class="form-control" name='Telefon' id="inputTel" placeholder="Telefono">
+				</div>
+			</div>
+			<div class="form-group">
+					<label for="inputDir">Dirección</label>
+					<input type="text" class="form-control" name='Direccion' id="inputDir" placeholder="Dirección">
+			</div>
+			<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="inputPro">Provincia</label>
+						<input type="text" class="form-control" name='Provincia' id="inputPro" placeholder="Provincia">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputLoc">Localidad</label>
+						<input type="text" class="form-control" name='Localidad' id="inputLoc" placeholder="Localidad">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputTel">CP</label>
+						<input type="number" class="form-control" name='CP' id="inputTel" placeholder="Codigo Postal">
+					</div>
+				</div>
+			<button type="submit" class="btn btn-primary">Añadir</button>
+	</form>
 @stop
