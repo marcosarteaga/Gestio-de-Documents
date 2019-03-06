@@ -4,7 +4,7 @@
 	 <div class='page-header'><h1 align='center' >Añadir Clientes</h1></div> 
 
 	
-	 <form method='post' action='/' > 
+	 <form method='get' action='/Clientes' > 
 	 <div class='input-group'> 
 	 <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span> 
 	 <input type='text' class='form-control' name='Nom' placeholder='NOMBRE'><br> 
@@ -55,13 +55,12 @@
 	 <div class='input-group'> 
 	 <span class='input-group-addon'><i class='glyphicon glyphicon-map-marker'></i></span> 
 	 <input type='text' name='CP' class='form-control' placeholder='CODIGO POSTAL'><br> 
-	 </div><br> 
+	 </div>
 
 	 <div class='input-group'>
      <span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span>
      <input id='dataModificacio' type='date' class='form-control' name='updated_at' placeholder='Data Modificació'>
      </div>
-
 
      <div class='input-group'>
      <span class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></span>

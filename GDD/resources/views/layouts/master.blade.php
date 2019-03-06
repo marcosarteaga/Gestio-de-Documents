@@ -19,14 +19,17 @@
     <script src="{{ asset('js/component-js.js')}}"></script> 
     <title>GDD</title>
   </head>
-  <body>
+  <body> 
       @include('componentes.navbar')
       <div id="error">
-
       </div>
+     <a href="componentes/formClientes"> <img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png"></a>
+
     <div class="container ">
+
       @yield('content')
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

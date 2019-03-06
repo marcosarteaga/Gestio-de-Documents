@@ -13,7 +13,7 @@ class insertDatos extends Controller
      */
     public function index()
     {
-        $clientes = registro::all();
+        $clientes = datosClientes::all();
         return view('layouts/master', compact('layouts/master'));    }
 
     /**

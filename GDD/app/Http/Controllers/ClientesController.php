@@ -21,8 +21,11 @@ class ClientesController extends Controller
         $cliente = Cliente::find($id);
         return view('detalle.cliente',array('cliente'=>$cliente));
     }
-    public function getInsertClient()
+
+    public function insertClient(Request $request)
     {
-        return view('detalle.insertar');
+        Cliente::create($request->all());
+        $arrayClientes = Cliente::all();
+        return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
 }
