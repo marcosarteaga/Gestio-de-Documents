@@ -22,20 +22,14 @@
     <title>GDD</title>
   </head>
   <body> 
+    <!-- Incluimos la barra de navegacion sin funciones acutalmente -->
       @include('componentes.navbar')
+    <!-- colocamos el Div donde estara colocado los errores -->
       <div id="error">
       </div>
-     
-
-    <div class="container ">
-
-      @yield('content')
-    </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Div para el contenido de las paginas -->
+      <div class="container ">
+        @yield('content')
+      </div>
   </body>
 </html>
