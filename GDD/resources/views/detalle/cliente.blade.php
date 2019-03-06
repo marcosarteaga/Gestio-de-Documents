@@ -9,9 +9,9 @@
 		<td><b>Email</b></td>
 	</tr>
 	<tr id="detalles" >
-		<td><input type="text" name="nom" value="{{$cliente->Nom}}"></td>
-		<td><input type="text" name="Cognom" value="{{$cliente->Cognom}}"></td>
-		<td><input type="text" name="email" value="{{$cliente->Email}}"></td>
+		<td><input disabled type="text" name="nom" value="{{$cliente->Nom}}"></td>
+		<td><input disabled type="text" name="Cognom" value="{{$cliente->Cognom}}"></td>
+		<td><input disabled type="text" name="email" value="{{$cliente->Email}}"></td>
 	</tr>
 	<tr>
 		<td><b>Telefono</b></td>
@@ -19,9 +19,9 @@
 		<td><b>NIF</b></td>
 	</tr>
 	<tr id="detalles2">
-		<td><input type="number" name="telefono" value="{{$cliente->Telefon}}"></td>
-		<td><input type="text" name="direccion" value="{{$cliente->Direccion}}"></td>
-		<td><input type="text" name="nif" value="{{$cliente->NIF}}" ></td>
+		<td><input  disabled type="number" name="telefono" value="{{$cliente->Telefon}}"></td>
+		<td><input  disabled type="text" name="direccion" value="{{$cliente->Direccion}}"></td>
+		<td><input  disabled type="text" name="nif" value="{{$cliente->NIF}}" ></td>
 	</tr>
 	<tr>
 		<td><b>Provincia</b></td>
@@ -29,9 +29,9 @@
 		<td><b>CP</b></td>
 	</tr>
 	<tr id="detalles3">
-		<td><input type="text" name="provincia" value="{{$cliente->Provincia}}"></td>
-		<td><input type="text" name="localidad" value="{{$cliente->Localidad}}"></td>
-		<td><input type="text" name="cp" value="{{$cliente->CP}}"></td>		
+		<td><input  disabled type="text" name="provincia" value="{{$cliente->Provincia}}"></td>
+		<td><input disabled type="text" name="localidad" value="{{$cliente->Localidad}}"></td>
+		<td><input  disabled type="text" name="cp" value="{{$cliente->CP}}"></td>		
 	</tr>
 </table>
 <br>

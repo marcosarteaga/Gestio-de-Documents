@@ -13,5 +13,5 @@
 Route::get('/', 'ClientesController@getClientes')->name('Listado Clientes');
 Route::get('componentes/formClientes','ClientesController@getCreateClient')->name('Crear Cliente');
 Route::get('detalle/cliente/{id}','ClientesController@showClient')->name('Mostrar client');
-Route::post('/Clientes','ClientesController@insertClient')->name('insertar Cliente');
+Route::get('/Clientes','ClientesController@insertClient')->name('insertar Cliente');
 
