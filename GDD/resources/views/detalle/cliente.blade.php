@@ -36,6 +36,7 @@
 </table>
 <br>
 <button onclick="modificar()" >Modificar</button>
+<button>Guardar</button>
 
 
 

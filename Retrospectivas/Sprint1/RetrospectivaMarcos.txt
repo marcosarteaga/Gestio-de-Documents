@@ -1,0 +1,8 @@
+¿Que a ido mal?
+    -Me ha costado bastante entender como funciona Laravel.
+    -Creo que los tutoriales que hemos hecho de laravel no me ha servido de mucho, ya que todo el rato era copiar y pegar, y no llegaba a entenderlo del todo.
+
+¿Que podemos mejorar?
+    -Enfocando de otra forma la manera de aprender laravel
+Opinion Personal
+	-Algo positivo que quiero destacar es que mi compañero me ha ayudado bastante con el tema de laravel.
