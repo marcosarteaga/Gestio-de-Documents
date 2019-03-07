@@ -1,8 +1,12 @@
 # Gestio-de-Documents
 1. Para poder hacer la migracion tenemos que crear el fichero .env Basado en el que tenemos de ejemplo en GDD .env.example
+
 	-Cambiamos: Nombre de la BBDD ("Esta bbdd tiene que ser creada vacia previamente")
+
 	-El nombre de usuario
+
 	-El Psswd
+    
 2. Ejecutamos la comanda "php artisan migrate"
 3. Ejecutamos la comanda "sudo composer install"
 4. Ejecutamos la comanda "sudo php artisan key:generate"
@@ -10,6 +14,7 @@
 
 # Retrospectiva
 Nil:
+
 ¿Que a ido mal?
     -Me a costado bastante el gestionar y empezar de 0 un proyecto en Laravel.
     -Mentalizame de crear un proyecto que pueda crecer.
