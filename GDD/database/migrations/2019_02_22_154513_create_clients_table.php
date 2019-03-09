@@ -26,6 +26,18 @@ class CreateClientsTable extends Migration
             $table->integer('CP');
             $table->timestamps();
         });
+
+
+        Schema::create('ventas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_cliente')->unsigned();
+            $table->string('Comprador');
+            $table->string('fichero');
+            $table->timestamps();
+            $table->foreign('id_cliente')->references('id')->on('clientes');
+
+
+        });
     }
 
     /**
