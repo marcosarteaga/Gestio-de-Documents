@@ -1,7 +1,9 @@
 var errores = 0;
 var logicaTelefono = "^[0-9]{9}$"
 var logicaMail ="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$";
+var logicaVacio = "^[^]+$";
 var mensajesError = [];
+var inputNames = [];
 /**
  * 
  * @param {array} arrayDatos 
@@ -36,6 +38,10 @@ function newlist(arrayDatos,type) {/* Pasamos el array de datos + el tipo de arr
         }
     }
 }
+window.onload = function(){
+    onClickForm("form");
+    $("#error").hide();
+}
 function addBorderError(idForm,idInput) {
     $(idForm+" "+idInput).addClass("border border-danger errores");
 }
@@ -52,39 +58,41 @@ function checkLabel(idInput,logica,idForm) {
         return false;
     }
 }
-function onClickForm(ifForm) {
+function onClickForm(idForm) {
     $("#sub").click(function () {
         checkForm(idForm);
         return false;
     });
 }
 function createErrorMessage(array){
-	$.each(names, function( index, value ) {
-  		/*if (value == "nombre"){
+	$.each(inputNames, function( index, value ) {
+  		if (value == "Nom"){
   			mensajesError.push("El campo nombre es incorrecto. Debe contener un minimo de 3 letras y un maximo de 30.")
-  		}
-  		if (value == "provincia"){
+          }
+        if (value == "Cognom"){
+            mensajesError.push("El campo apellido es incorrecto. Debe contener un minimo de 3 letras y un maximo de 30.")
+        }
+  		if (value == "Provincia"){
   			mensajesError.push("El campo provincia es incorrecto. Debe contener un minimo de 3 letras y un maximo de 30.");
   		}
-  		if (value == "localidad"){
+  		if (value == "Localidad"){
   			mensajesError.push("El campo localidad es incorrecto. Debe contener un minimo de 3 letras y un maximo de 30.");
-          }*/
-  		if (value == "telefono"){
+          }
+  		if (value == "Telefon"){
   			mensajesError.push("Telefono incorrecto. Debe contener 9 numeros.");
   		}
-  		if (value == "email"){
+  		if (value == "Email"){
   			mensajesError.push("Correo electronico incorrecto.");
           }
-          /*
-  		if (value == "direccion"){
+  		if (value == "Direccio"){
   			mensajesError.push("El campo direccion no puede estar vacio.");
   		}
-  		if (value == "cifNif"){
+  		if (value == "NIF"){
   			mensajesError.push("El campo CIF/NIF no puede estar vacio.");
   		}
-  		if (value == "codigoPostal"){
+  		if (value == "CP"){
   			mensajesError.push("El campo codigo postal no puede estar vacio.");
-  		}*/
+  		}
 	});
 }
 function checkForm(idForm) {
@@ -92,22 +100,50 @@ function checkForm(idForm) {
     //comprovaciones de erroes
     checkLabel("#inputTel",logicaTelefono,idForm);
     checkLabel("#inputEmail",logicaMail,idForm);
-
+    checkLabel("#inputLoc",logicaVacio,idForm);
+    checkLabel("#inputNombre",logicaVacio,idForm);
+    checkLabel("#inputApellidos",logicaVacio,idForm);
+    checkLabel("#inputPro",logicaVacio,idForm);
+    checkLabel("#inputDir",logicaVacio,idForm);
+    checkLabel("#inputNif",logicaVacio,idForm);
+    
+    
     if(errores===0){
         submit();
     }else{
+        recogerErrores();
+        createErrorMessage(inputNames);
+        MostrarError(mensajesError);
+        inputNames.length = 0;
+        mensajesError.length = 0;
 
     }
 
+}
+function recogerErrores() {/* Todos los inputs con la class error son guardados en un array*/
+    $("input.errores").each(function(){
+        var inputError = $(this).attr("name");
+        inputNames.push(inputError);
+    });
 }
 /**
  * 
  * @param {Array} arrayText 
  */
-function error(arrayText) {//cambiar a array y rellenar el error con el array de errores
-    //console.log(type+" "+text);
-    $.each(function (index,value) {
-        $("#error").append(value);
+function MostrarError(arrayText) {//cambiar a array y rellenar el error con el array de errores   
+    //Borramos el contenido del div
+    $("#error").empty();
+    //Añadimos el boton para cerrar el div
+    $("#error").append(
+        $("<button>").addClass("btn btn-secondary CloseError").attr("onClick","BorrarDivError();").text("x"));
+    $("#error").append($("<ol>").addClass("listaErrores"));
+    $.each(arrayText,function(index,value){
+        $(".listaErrores").append($("<ul>").text(value));
     });
+    $("#error").show();
     
+    
+}
+function BorrarDivError() {
+    $("#error").hide();
 }
