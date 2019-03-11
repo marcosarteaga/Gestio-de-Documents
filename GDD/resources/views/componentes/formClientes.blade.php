@@ -5,11 +5,11 @@
 
 	 <div class='page-header'><h1 align='center' >Nuevo Cliente</h1></div> 
 
-	 <form method='get' action='/Clientes'>
+	 <form method='get' id='form' action='/Clientes'>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputEmail">Nombre</label>
-					<input required type="text" class="form-control" name='Nom' id="inputEmail" placeholder="Nombre">
+					<label for="inputNombre">Nombre</label>
+					<input required type="text" class="form-control" name='Nom' id="inputNombre" placeholder="Nombre">
 				</div>
 			  	<div class="form-group col-md-6">
 					<label for="inputApellidos">Apellidos</label>
@@ -48,7 +48,7 @@
 						<input required type="number" class="form-control" name='CP' id="inputTel" placeholder="Codigo Postal">
 					</div>
 				</div>
-			<button type="submit" class="btn btn-primary">Añadir</button>
+			<button id="sub" class="btn btn-primary">Añadir</button>
 	</form>
 
 @stop

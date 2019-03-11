@@ -25,7 +25,7 @@
     <!-- Incluimos la barra de navegacion sin funciones acutalmente -->
       @include('componentes.navbar')
     <!-- colocamos el Div donde estara colocado los errores -->
-      <div id="error">
+      <div id="error" class="globalError">
       </div>
     <!-- Div para el contenido de las paginas -->
       <div class="container ">

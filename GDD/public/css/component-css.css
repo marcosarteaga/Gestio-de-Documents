@@ -12,7 +12,9 @@ a{
 .globalError{
     background-color: yellow;
     color: red;
+    position:absolute;
+    left:0;
 }
 img{
     margin: 1%;
-}
+} 

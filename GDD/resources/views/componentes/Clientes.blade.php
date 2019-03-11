@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<!-- elemento que solo sirve para lanzar el error -->
-<button onclick="error('errorMysql','ESTO ES UN ERROR !!!')">Ejemplo Error</button>
 <a href="componentes/formClientes"> <img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png"></a>
 <h1>Cartera de Clientes</h1>
 
