@@ -38,8 +38,12 @@
 <button onclick="modificar()" >Modificar</button>
 <button>Guardar</button>
 
+<br><br>
 
 
-     
+<h1 align="center" >Datos Ventas</h1>
+<!--{{$venta->Comprador}}-->
+
+
 
 @stop
