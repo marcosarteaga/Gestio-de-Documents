@@ -17,6 +17,11 @@ Route::get('componentes/formClientes','ClientesController@getCreateClient')->nam
 Route::post('componentes/formClientes','ClientesController@saveClient')->name('Crear cliente');
 //Mostrar cliente
 Route::get('detalle/cliente/{id}','ClientesController@showClient')->name('Mostrar client');
+
+
+Route::get('/{id}','ClientesController@update')->name('Modificar client');
+
+
 /*
 Route::get('detalle/cliente/{id}','ClientesController@showVentas')->name('Mostrar ventas');
 */

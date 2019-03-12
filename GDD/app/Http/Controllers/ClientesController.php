@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cliente;
 use App\ventas;
 use Exception;
+use DB;
 
 
 class ClientesController extends Controller
@@ -20,21 +21,28 @@ class ClientesController extends Controller
     public function showClient($id)
     {
         $cliente = Cliente::find($id);
-        return view('detalle.cliente',array('cliente'=>$cliente));
+        return view('/detalle.cliente',array('cliente'=>$cliente));
     }
-<<<<<<< HEAD
 
-    public function showVentas($id)
-=======
+
+    public function update(Request $request, $id){
+        
+        $cliente = Cliente::find($id)->update($request->all());
+        $clientes = DB::table('clientes')->where('id', $id)->get();
+        return view('componentes.Clientes', ['arrayClientes'=>$clientes]);
+
+
+    }
+
     //vista formulario
     public function getCreateClient()
->>>>>>> ce20e078127b7920588b44f90ac5c85ff7d2808f
+
     {
         return view('componentes.formClientes');
     }
-<<<<<<< HEAD
+
     
-=======
+
     //añadir cliente
     public function saveClient(Request $request){
 		try{
@@ -56,19 +64,12 @@ class ClientesController extends Controller
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
 	}
->>>>>>> ce20e078127b7920588b44f90ac5c85ff7d2808f
+/*
     public function insertClient(Request $request)
     {
         Cliente::create($request->all());
         $arrayClientes = Cliente::all();
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
-    }
-
-    /* preguntar a enric
-    public function showVentas($id)
-    {
-        $venta = ventas::find($id);
-        return view('detalle.cliente',array('venta'=>$venta));
     }
 */
 }

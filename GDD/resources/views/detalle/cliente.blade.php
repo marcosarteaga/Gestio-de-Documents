@@ -1,7 +1,16 @@
 @extends('layouts.master')
 @section('content')
 <h1 align="center" >Datos Cliente</h1>
+<?php
+    $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $idCliente = explode("/",$url);
+    $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
+    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','fichero','updated_at']);
+    
 
+
+echo "<form method='get' action='detalle/cliente/".$idCliente[5]."' >";
+?>
 <table style="width:100%">
 	<tr>
 		<td><b>Nombre</b></td>
@@ -35,8 +44,11 @@
 	</tr>
 </table>
 <br>
+<input type="submit" name="" value="Actualizar">
+</form>
+
 <button onclick="modificar()" >Modificar</button>
-<button>Guardar</button>
+
 
 <br><br>
 
@@ -47,7 +59,8 @@
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $idCliente = explode("/",$url);
     $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
-    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','updated_at']);
+    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','fichero','updated_at']);
+    
 ?>
 
 
