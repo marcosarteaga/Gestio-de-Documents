@@ -5,7 +5,8 @@
 
 	 <div class='page-header'><h1 align='center' >Nuevo Cliente</h1></div> 
 
-	 <form method='get' id='form' action='/Clientes'>
+	 <form method='post' id='form' action('ClientesController@saveClient')>
+		 {{csrf_field()}}
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputNombre">Nombre</label>
