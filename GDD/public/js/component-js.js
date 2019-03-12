@@ -1,15 +1,26 @@
 var errores = 0;
-var logicaTelefono = "^[0-9]{9}$"
+//Expresiones regulares.
+var logicaTelefono = "^[0-9]{9}$";
 var logicaMail ="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$";
 var logicaVacio = "^[^]+$";
+var logicaNIF = "^\d{8}[a-zA-Z]{1}$";
+var logicaCIF = "^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$";
+var logicaNIE = "^[XxTtYyZz]{1}[0-9]{7}[a-zA-Z]{1}$";
+
+//Arrays de informacion interna
 var mensajesError = [];
 var inputNames = [];
+
+//control de NIF introducido
+String.prototype.isNIF=function(){
+    return /^(\d{7,8})([A-HJ-NP-TV-Z])$/.test(this) && ("TRWAGMYFPDXBNJZSQVHLCKE"[(RegExp.$1%23)]==RegExp.$2);
+ };
 /**
- * 
+ * Pasamos el array de datos + el tipo de array(Clientes o ventas)
  * @param {array} arrayDatos 
  * @param {String} type 
  */
-function newlist(arrayDatos,type) {/* Pasamos el array de datos + el tipo de array(Clientes o ventas) */
+function newlist(arrayDatos,type) {
     /* Comprobamos que tipo es*/
     if(type=="Clientes"){
         /* Recorremos todo el array */
@@ -37,17 +48,37 @@ function newlist(arrayDatos,type) {/* Pasamos el array de datos + el tipo de arr
                     )));*/
         }
     }
+    if(type=="Ventas"){
+
+    }
 }
+//Añadimos al carrgar la pagina el onClick en el boton submit. 
 window.onload = function(){
     onClickForm("form");
-    $("#error").hide();
+    $("#error").hide();//escondemos el div de errores.
 }
+/**
+ * funcion añadir borde rojo mediante classe de boostrap en los inputs
+ * @param {*} idForm 
+ * @param {*} idInput 
+ */
 function addBorderError(idForm,idInput) {
     $(idForm+" "+idInput).addClass("border border-danger errores");
 }
+/**
+ * funcion quitar borde mediante classe de bostrap en los inputs
+ * @param {*} idForm 
+ * @param {*} idInput 
+ */
 function removeBorderError(idForm,idInput) {
     $(idForm+" "+idInput).removeClass("border border-danger errores");
 }
+/**
+ * funcion para saber si es correcto el valor en el input.
+ * @param {*} idInput 
+ * @param {*} logica 
+ * @param {*} idForm 
+ */
 function checkLabel(idInput,logica,idForm) {
     if ($(idInput).val().match(logica)) {//recojes el value del input y hace el match con la logica que le pasemos
         removeBorderError(idForm,idInput);
@@ -58,14 +89,39 @@ function checkLabel(idInput,logica,idForm) {
         return false;
     }
 }
+/**
+ * Chequeamos el campo de NIF/CIF/NIE
+ * @param {*} idInput 
+ * @param {*} idForm 
+ */
+function CheckNifCif(idInput,idForm) {
+    if(($(idInput).val().match(logicaNIF)) 
+    || ($(idInput).val().match(logicaCIF))
+    || ($(idInput).val().match(logicaNIE))){
+        removeBorderError(idForm,idInput);
+        return true;
+    }else{
+        addBorderError(idForm,idInput);
+        errores++;
+        return false;
+    }
+}
+/**
+ * Añade al boton con id sub un onclick y lanza una funcion con el id del form.
+ * @param {*} idForm 
+ */
 function onClickForm(idForm) {
     $("#sub").click(function () {
         checkForm(idForm);
         return false;
     });
 }
+/**
+ * Generamos los mensages de error para el elemento error en funcion del Name en el input
+ * @param {*} array 
+ */
 function createErrorMessage(array){
-	$.each(inputNames, function( index, value ) {
+	$.each(array, function( index, value ) {
   		if (value == "Nom"){
   			mensajesError.push("El campo nombre es incorrecto. Debe contener un minimo de 3 letras y un maximo de 30.")
           }
@@ -95,9 +151,12 @@ function createErrorMessage(array){
   		}
 	});
 }
+/**
+ * comprovaciones de errores
+ * @param {*} idForm 
+ */
 function checkForm(idForm) {
     errores = 0;
-    //comprovaciones de erroes
     checkLabel("#inputTel",logicaTelefono,idForm);
     checkLabel("#inputEmail",logicaMail,idForm);
     checkLabel("#inputLoc",logicaVacio,idForm);
@@ -120,17 +179,20 @@ function checkForm(idForm) {
     }
 
 }
-function recogerErrores() {/* Todos los inputs con la class error son guardados en un array*/
+/**
+ * Todos los inputs con la class error son guardados en un array
+ */
+function recogerErrores() {
     $("input.errores").each(function(){
         var inputError = $(this).attr("name");
         inputNames.push(inputError);
     });
 }
 /**
- * 
+ * Cambiar a array y rellenar el error con el array de errores
  * @param {Array} arrayText 
  */
-function MostrarError(arrayText) {//cambiar a array y rellenar el error con el array de errores   
+function MostrarError(arrayText) {//   
     //Borramos el contenido del div
     $("#error").empty();
     //Añadimos el boton para cerrar el div
@@ -144,6 +206,9 @@ function MostrarError(arrayText) {//cambiar a array y rellenar el error con el a
     
     
 }
+/**
+ * Escondes el div de los errores
+ */
 function BorrarDivError() {
     $("#error").hide();
 }
