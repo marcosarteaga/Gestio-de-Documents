@@ -41,8 +41,21 @@
 <br><br>
 
 
-<h1 align="center" >Datos Ventas</h1>
-<!--{{$venta->Comprador}}-->
+<h1 id="ventas" align="center" >Datos Ventas</h1>
+
+<?php
+    $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $idCliente = explode("/",$url);
+    $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
+    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','updated_at']);
+?>
+
+
+
+<script type="text/javascript">
+	var ConsultaVentas = <?php echo json_encode($infoVentas);?>;
+    detalles(ConsultaVentas,"ventas");
+</script>
 
 
 

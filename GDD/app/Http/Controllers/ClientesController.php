@@ -24,13 +24,13 @@ class ClientesController extends Controller
         $cliente = Cliente::find($id);
         return view('detalle.cliente',array('cliente'=>$cliente));
     }
-/* preguntar a enric
+
     public function showVentas($id)
     {
         $venta = ventas::find($id);
         return view('detalle.cliente',array('venta'=>$venta));
     }
-*/
+    
     public function insertClient(Request $request)
     {
         Cliente::create($request->all());

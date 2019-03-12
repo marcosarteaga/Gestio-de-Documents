@@ -212,3 +212,52 @@ function MostrarError(arrayText) {//
 function BorrarDivError() {
     $("#error").hide();
 }
+
+
+
+function detalles(Consulta,elementoAnteriorId){
+  if (Consulta.length>=1) {
+    var elementoAnterior = $("#"+elementoAnteriorId);
+  console.log(elementoAnterior);
+  var tabla = $("<table>").addClass("table");
+  var th = $('<thead>');
+  var trtitulos =$('<tr>').addClass("thead-dark");
+
+  var tdid = $('<th>',{text: "ID"});
+  var tdnombre = $('<th>',{text:"Nombre"});
+  var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+
+  trtitulos.append(tdid);
+  trtitulos.append(tdnombre);
+  trtitulos.append(tdfmodi);
+  th.append(trtitulos);
+  tabla.append(trtitulos);
+
+  
+
+  for(var datos in Consulta){
+    var trdetalles =$('<tr>');
+    var Claves = Object.keys(Consulta[datos]);
+    var Valores = Object.values(Consulta[datos]);
+    for(var key in Claves){
+      var titulo = Claves[key];
+      if (titulo=="nombreVentas") {
+        var ahred = $('<a>',{text:Valores[key],href:"/detallesVentas/"+Consulta[datos]["id"]}); 
+        var td = $('<td>');
+        td.append(ahred);
+        trdetalles.append(td);
+      }
+      else{
+        var td = $('<td>').text(Valores[key]);
+        trdetalles.append(td);
+      }
+      
+    }
+    
+    
+    tabla.append(trdetalles); 
+  }
+  
+  elementoAnterior.after(tabla);
+  }
+}
