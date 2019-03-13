@@ -1,0 +1,14 @@
+¿Que a ido mal?
+    -Muchos baches en la parte del laravel para poder gestionar cambios de view.
+    -La parte de los formularios es bastante espesa al combinar el larabel con el jQuery y me a costado en paticular.
+    -La gestion integra de errores en el formulario.
+    -Pulcritud del codigo.
+    
+¿Que podemos mejorar?
+    -Podriamos siplificar mas el codigo pero no llegariamos al final del sprint
+
+Opinion personal
+    -Mi compañero entiende todo lo que le explico para poder mejorar,
+        siempre que puede me pregunta, para poder llegar a una solucion unica ,
+        si el codigo afecta a la parte que estoy haciendo,
+        me explica que tiene que cambiar para que entienda la logica que a seguido.

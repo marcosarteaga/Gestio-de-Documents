@@ -12,6 +12,11 @@
 4. Ejecutamos la comanda "sudo php artisan key:generate"
 5. Ejecutamos la comanda "php artisan serve" para poner en marcha el servicio
 
+# Introduccion de datos de ejemplo.
+1. php artisan migrate:refresh
+2. php artisan db:seed --class=info_temp
+
+
 # Retrospectiva
 Nil:
 
