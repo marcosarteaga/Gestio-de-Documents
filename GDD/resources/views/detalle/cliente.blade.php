@@ -9,8 +9,9 @@
     
 
 
-echo "<form method='get' action='detalle/cliente/".$idCliente[5]."' >";
+echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 ?>
+{{csrf_field()}}
 <table style="width:100%">
 	<tr>
 		<td><b>Nombre</b></td>
@@ -18,9 +19,9 @@ echo "<form method='get' action='detalle/cliente/".$idCliente[5]."' >";
 		<td><b>Email</b></td>
 	</tr>
 	<tr id="detalles" >
-		<td><input disabled type="text" name="nom" value="{{$cliente->Nom}}"></td>
+		<td><input disabled type="text" name="Nom" value="{{$cliente->Nom}}"></td>
 		<td><input disabled type="text" name="Cognom" value="{{$cliente->Cognom}}"></td>
-		<td><input disabled type="text" name="email" value="{{$cliente->Email}}"></td>
+		<td><input disabled type="text" name="Email" value="{{$cliente->Email}}"></td>
 	</tr>
 	<tr>
 		<td><b>Telefono</b></td>
@@ -28,8 +29,8 @@ echo "<form method='get' action='detalle/cliente/".$idCliente[5]."' >";
 		<td><b>NIF</b></td>
 	</tr>
 	<tr id="detalles2">
-		<td><input  disabled type="number" name="telefono" value="{{$cliente->Telefon}}"></td>
-		<td><input  disabled type="text" name="direccion" value="{{$cliente->Direccion}}"></td>
+		<td><input  disabled type="number" name="Telefon" value="{{$cliente->Telefon}}"></td>
+		<td><input  disabled type="text" name="Direccion" value="{{$cliente->Direccion}}"></td>
 		<td><input  disabled type="text" name="nif" value="{{$cliente->NIF}}" ></td>
 	</tr>
 	<tr>
@@ -38,9 +39,9 @@ echo "<form method='get' action='detalle/cliente/".$idCliente[5]."' >";
 		<td><b>CP</b></td>
 	</tr>
 	<tr id="detalles3">
-		<td><input  disabled type="text" name="provincia" value="{{$cliente->Provincia}}"></td>
-		<td><input disabled type="text" name="localidad" value="{{$cliente->Localidad}}"></td>
-		<td><input  disabled type="text" name="cp" value="{{$cliente->CP}}"></td>		
+		<td><input  disabled type="text" name="Provincia" value="{{$cliente->Provincia}}"></td>
+		<td><input disabled type="text" name="Localidad" value="{{$cliente->Localidad}}"></td>
+		<td><input  disabled type="text" name="CP" value="{{$cliente->CP}}"></td>		
 	</tr>
 </table>
 <br>
