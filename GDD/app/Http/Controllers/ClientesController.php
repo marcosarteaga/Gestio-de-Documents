@@ -17,12 +17,14 @@ class ClientesController extends Controller
         $arrayClientes = Cliente::all();
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
-    //mostrar cliente
-    
-    public function showClient($id)
+    //mostrar ventas
+
+    public function showVenta($id)
     {
-        $cliente = Cliente::find($id);
-        return view('detalle.cliente',array('cliente'=>$cliente));
+        $Ventas = DB::table('ventas')->where('id', $id)->get();
+        return view('detalle/venta', ['Ventas' => $Ventas]);
+
+        
     }
 
 
@@ -71,6 +73,8 @@ class ClientesController extends Controller
 				$cliente->Localidad = $request->input('Localidad');
 				$cliente->CP = $request->input('CP');
             $cliente->save();
+            $arrayClientes = Cliente::all();
+			//$clientes = Cliente::select('id', 'Nom', 'Cognom','Email', 'Telefon', 'Direccio', 'NIF', 'Provincia','Localidad','CP')->get();
 			return redirect('/');
 		}catch(Exception $e){
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
