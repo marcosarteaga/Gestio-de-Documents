@@ -16,7 +16,8 @@
     <!--CSS personalizado -->
     <link rel="stylesheet" href="{{asset('css/component-css.css')}}">
     <!--Js personalizado -->
-    <script src="{{ asset('js/component-js.js')}}"></script> 
+    <script type="text/javascript" src="{{asset('js/CifNifNie.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/component-js.js')}}"></script> 
     <!--Js Modificar detalles clientes -->
     <script type="text/javascript" src="{{ asset('js/modificarDetalles.js')}}"></script>
     <title>GDD</title>

@@ -64,12 +64,4 @@ class ClientesController extends Controller
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
 	}
-/*
-    public function insertClient(Request $request)
-    {
-        Cliente::create($request->all());
-        $arrayClientes = Cliente::all();
-        return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
-    }
-*/
 }
