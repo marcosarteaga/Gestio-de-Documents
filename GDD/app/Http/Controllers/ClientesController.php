@@ -18,19 +18,33 @@ class ClientesController extends Controller
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
     //mostrar cliente
+    
     public function showClient($id)
     {
         $cliente = Cliente::find($id);
-        return view('/detalle.cliente',array('cliente'=>$cliente));
+        return view('detalle.cliente',array('cliente'=>$cliente));
     }
 
 
     public function update(Request $request, $id){
         
-        $cliente = Cliente::find($id)->update($request->all());
-        $clientes = DB::table('clientes')->where('id', $id)->get();
-        return view('componentes.Clientes', ['arrayClientes'=>$clientes]);
+        $cliente=Cliente::find($id);
+        $cliente->Nom = $request->input('Nom');
+                $cliente->Cognom = $request->input('Cognom');
+                $cliente->Email = $request->input('Email');
+                $cliente->Telefon = $request->input('Telefon');
+                $cliente->Direccion = $request->input('Direccion');
+                $cliente->Provincia = $request->input('Provincia');
+                $cliente->Localidad = $request->input('Localidad');
+                $cliente->CP = $request->input('CP');
+            $cliente->save();
+        return view('detalle.cliente', array('cliente'=>$cliente));
 
+    }
+
+    public function editCliente($id){
+        $cliente=Cliente::find($id);
+        return view('detalle.cliente',array('cliente'=>$cliente));
 
     }
 
