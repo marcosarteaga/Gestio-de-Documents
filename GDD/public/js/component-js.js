@@ -10,11 +10,6 @@ var logicaNIE = "^[XxTtYyZz]{1}[0-9]{7}[a-zA-Z]{1}$";
 //Arrays de informacion interna
 var mensajesError = [];
 var inputNames = [];
-
-//control de NIF introducido
-String.prototype.isNIF=function(){
-    return /^(\d{7,8})([A-HJ-NP-TV-Z])$/.test(this) && ("TRWAGMYFPDXBNJZSQVHLCKE"[(RegExp.$1%23)]==RegExp.$2);
- };
 /**
  * Pasamos el array de datos + el tipo de array(Clientes o ventas)
  * @param {array} arrayDatos 
@@ -90,23 +85,6 @@ function checkLabel(idInput,logica,idForm) {
     }
 }
 /**
- * Chequeamos el campo de NIF/CIF/NIE
- * @param {*} idInput 
- * @param {*} idForm 
- */
-function CheckNifCif(idInput,idForm) {
-    if(($(idInput).val().match(logicaNIF)) 
-    || ($(idInput).val().match(logicaCIF))
-    || ($(idInput).val().match(logicaNIE))){
-        removeBorderError(idForm,idInput);
-        return true;
-    }else{
-        addBorderError(idForm,idInput);
-        errores++;
-        return false;
-    }
-}
-/**
  * Añade al boton con id sub un onclick y lanza una funcion con el id del form.
  * @param {*} idForm 
  */
@@ -144,7 +122,7 @@ function createErrorMessage(array){
   			mensajesError.push("El campo direccion no puede estar vacio.");
   		}
   		if (value == "NIF"){
-  			mensajesError.push("El campo CIF/NIF no puede estar vacio.");
+  			mensajesError.push("El campo CIF/NIF es incorrecto");
   		}
   		if (value == "CP"){
   			mensajesError.push("El campo codigo postal no puede estar vacio.");
@@ -164,8 +142,7 @@ function checkForm(idForm) {
     checkLabel("#inputApellidos",logicaVacio,idForm);
     checkLabel("#inputPro",logicaVacio,idForm);
     checkLabel("#inputDir",logicaVacio,idForm);
-    checkLabel("#inputNif",logicaVacio,idForm);
-    
+    CheckNifCif("#inputNif",idForm);
     
     if(errores===0){
         submit();
