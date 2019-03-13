@@ -5,7 +5,7 @@
     -Pulcritud del codigo.
     
 ¿Que podemos mejorar?
-    -Podriamos siplificar mas el codigo pero no llegariamos al final del sprint
+    -Podriamos simplificar mas el codigo pero no llegariamos al final del sprint
 
 Opinion personal
     -Mi compañero entiende todo lo que le explico para poder mejorar,

@@ -21,19 +21,33 @@
 Nil:
 
 ¿Que a ido mal?
-    -Me a costado bastante el gestionar y empezar de 0 un proyecto en Laravel.
-    -Mentalizame de crear un proyecto que pueda crecer.
+    -Muchos baches en la parte del laravel para poder gestionar cambios de view.
+    -La parte de los formularios es bastante espesa al combinar el larabel con el jQuery y me a costado en paticular.
+    -La gestion integra de errores en el formulario.
+    -Pulcritud del codigo.
     
 ¿Que podemos mejorar?
-    -Preguntar mas a profesores para que nos den una ruta para lo queremos hacer.
+    -Podriamos simplificar mas el codigo pero no llegariamos al final del sprint
+
+Opinion personal
+    -Mi compañero entiende todo lo que le explico para poder mejorar,
+        siempre que puede me pregunta, para poder llegar a una solucion unica ,
+        si el codigo afecta a la parte que estoy haciendo,
+        me explica que tiene que cambiar para que entienda la logica que a seguido.
 
 Marcos:
 
 ¿Que a ido mal?
-    -Me ha costado bastante entender como funciona Laravel.
-    -Creo que los tutoriales que hemos hecho de laravel no me ha servido de mucho, ya que todo el rato era copiar y pegar, y no llegaba a entenderlo del todo.
+    -La parte de laravel sigue siendo un poco frustrante cuando intentas combinar rutas y funciones del controlador
+    -He tenido problemas para poder implementar los formularios
+
 
 ¿Que podemos mejorar?
-    -Enfocando de otra forma la manera de aprender laravel
-Opinion Personal
-	-Algo positivo que quiero destacar es que mi compañero me ha ayudado bastante con el tema de laravel.
+    -Mejorar el codigo y organizarlo
+    -Conocer un poco mas sobre laravel
+
+
+
+Opinion personal:
+-Laravel todavia no acabo de comprenderlo, ya que pienso que ya lo entiendo pero luego cuando tengo que combinar algo que esta hecho con algo nuevo me dan errores, y por culpa de eso dedicamos mas tiempo del necesario para implementar cosas nuevas.
+-Lo positivo que entre mi compañero y yo conseguimos arreglar los errores, ademas de haber una buena dinamica de trabajo y buen ambiente entre ambos.

@@ -1,0 +1,14 @@
+¿Que a ido mal?
+	-La parte de laravel sigue siendo un poco frustrante cuando intentas combinar rutas y funciones del controlador
+	-He tenido problemas para poder implementar los formularios
+
+
+¿Que podemos mejorar?
+	-Mejorar el codigo y organizarlo
+	-Conocer un poco mas sobre laravel
+
+
+
+Opinion personal:
+-Laravel todavi no acabo de comprenderlo, ya que pienso que ya lo entiendo pero luego cuando tengo que combinar algo que esta hecho con algo nuevo me dan errores, y por culpa de eso dedicamos mas tiempo del necesario para implementar cosas nuevas.
+-Lo positivo que entre mi compañero y yo conseguimos arreglar los errores, ademas de haber una buena dinamica de trabajo y buen ambiente entre ambos.

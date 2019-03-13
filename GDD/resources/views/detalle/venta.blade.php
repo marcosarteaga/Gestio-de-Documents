@@ -6,10 +6,21 @@
   $docs = DB::table('documentos')->where('id_venta', $idVenta[5])->get(['id','tipo_documento','archivo']);
 ?>
 <h1 class="display-3">Detalle Venta</h1>
-<label>ID</label>
-<label>Nombre Ventas</label>
-<label></label>
-<label>{{$Ventas[0]->id}}</label>
+<table style="width:100%">
+	<tr>
+	<td><b>ID</b></td>
+	<td><b>Nombre Ventas</b></td>
+	<td><b>Fecha de creacion</b></td>	
+	</tr>
+
+	<tr>
+	<td>{{$Ventas[0]->id}}</td>
+	<td>{{$Ventas[0]->nombreVentas}}</td>
+	<td>{{$Ventas[0]->created_at}}</td>	
+	</tr>
+</table>
+
+
 
 
 
