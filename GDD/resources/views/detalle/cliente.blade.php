@@ -11,6 +11,7 @@
 
 echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 ?>
+
 {{csrf_field()}}
 <table style="width:100%">
 	<tr>
@@ -55,14 +56,6 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 
 
 <h1 id="ventas" align="center" >Datos Ventas</h1>
-
-<?php
-    $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    $idCliente = explode("/",$url);
-    $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
-    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','nombreVentas','updated_at']);
-    
-?>
 
 
 

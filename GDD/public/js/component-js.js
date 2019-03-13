@@ -242,7 +242,7 @@ function detalles(Consulta,elementoAnteriorId){
     for(var key in Claves){
       var titulo = Claves[key];
       if (titulo=="nombreVentas") {
-        var ahred = $('<a>',{text:Valores[key],href:"detalle/venta/"+Consulta[datos]["id"]}); 
+        var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
         var td = $('<td>');
         td.append(ahred);
         trdetalles.append(td);
@@ -290,7 +290,7 @@ function detallesFichero(Consulta,elementoAnteriorId){
     for(var key in Claves){
       var titulo = Claves[key];
       if (titulo=="archivo") {
-        var ahred = $('<a>',{text:Valores[key],href:"/detallesVentas/"+Consulta[datos]["id"]}); 
+        var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
         var td = $('<td>');
         td.append(ahred);
         trdetalles.append(td);

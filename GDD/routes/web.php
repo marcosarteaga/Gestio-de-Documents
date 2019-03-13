@@ -20,5 +20,8 @@ Route::post('componentes/formClientes','ClientesController@saveClient')->name('C
 Route::post('detalle/cliente/{id}','ClientesController@update')->name('Modificar client');
 Route::get('detalle/cliente/{id}','ClientesController@editCliente')->name('Modificar client');
 
+//Mostrar ventas
+Route::get('detalle/venta/{id}','VentaController@showVenta')->name('Modificar client');
+
 
 

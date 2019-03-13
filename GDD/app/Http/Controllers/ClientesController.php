@@ -19,13 +19,7 @@ class ClientesController extends Controller
     }
     //mostrar ventas
 
-    public function showVenta($id)
-    {
-        $Ventas = DB::table('ventas')->where('id', $id)->get();
-        return view('detalle/venta', ['Ventas' => $Ventas]);
-
-        
-    }
+    
 
 
     public function update(Request $request, $id){
