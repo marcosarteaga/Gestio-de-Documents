@@ -71,9 +71,7 @@ class ClientesController extends Controller
 				$cliente->Localidad = $request->input('Localidad');
 				$cliente->CP = $request->input('CP');
             $cliente->save();
-            $arrayClientes = Cliente::all();
-			//$clientes = Cliente::select('id', 'Nom', 'Cognom','Email', 'Telefon', 'Direccio', 'NIF', 'Provincia','Localidad','CP')->get();
-			return view('componentes.Clientes', ['arrayClientes'=>$arrayClientes]);
+			return redirect('/');
 		}catch(Exception $e){
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
