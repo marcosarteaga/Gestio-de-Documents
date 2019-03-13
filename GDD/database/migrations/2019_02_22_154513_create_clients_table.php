@@ -32,9 +32,22 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->integer('id_cliente')->unsigned();
             $table->string('Comprador');
-            $table->string('fichero');
+            $table->string('nombreVentas');
             $table->timestamps();
             $table->foreign('id_cliente')->references('id')->on('clientes');
+
+
+        });
+
+
+
+        Schema::create('documentos', function (Blueprint $table) {
+            $table->increments('id')->unique();
+            $table->integer('id_venta')->unsigned();
+            $table->string('tipo_documento');
+            $table->string('archivo');
+            $table->timestamps();
+            $table->foreign('id_venta')->references('id')->on('ventas');
 
 
         });
@@ -47,6 +60,8 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('documentos');
+        Schema::dropIfExists('ventas');
         Schema::dropIfExists('clientes');
     }
 }

@@ -241,8 +241,8 @@ function detalles(Consulta,elementoAnteriorId){
     var Valores = Object.values(Consulta[datos]);
     for(var key in Claves){
       var titulo = Claves[key];
-      if (titulo=="fichero") {
-        var ahred = $('<a>',{text:Valores[key],href:"/detallesVentas/"+Consulta[datos]["id"]}); 
+      if (titulo=="nombreVentas") {
+        var ahred = $('<a>',{text:Valores[key],href:"detalle/venta/"+Consulta[datos]["id"]}); 
         var td = $('<td>');
         td.append(ahred);
         trdetalles.append(td);
@@ -255,6 +255,56 @@ function detalles(Consulta,elementoAnteriorId){
     }
     
     
+    tabla.append(trdetalles); 
+  }
+  
+  elementoAnterior.after(tabla);
+  }
+}
+
+
+function detallesFichero(Consulta,elementoAnteriorId){
+  if (Consulta.length>=1) {
+    var elementoAnterior = $("#"+elementoAnteriorId);
+  var tabla = $("<table>").addClass("table");
+  tabla.attr({'style':'margin-left:30px;'});
+  var th = $('<thead>');
+  var trtitulos =$('<tr>');
+
+  var tdid = $('<th>',{text: "ID"});
+  var tdnombre = $('<th>',{text:"Nombre"});
+  var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+
+  trtitulos.append(tdid);
+  trtitulos.append(tdnombre);
+  trtitulos.append(tdfmodi);
+  th.append(trtitulos);
+  tabla.append(trtitulos);
+
+  
+
+  for(var datos in Consulta){
+    var trdetalles =$('<tr>');
+    var Claves = Object.keys(Consulta[datos]);
+    var Valores = Object.values(Consulta[datos]);
+    for(var key in Claves){
+      var titulo = Claves[key];
+      if (titulo=="archivo") {
+        var ahred = $('<a>',{text:Valores[key],href:"/detallesVentas/"+Consulta[datos]["id"]}); 
+        var td = $('<td>');
+        td.append(ahred);
+        trdetalles.append(td);
+      }
+      else{
+        var td = $('<td>').text(Valores[key]);
+        trdetalles.append(td);
+      }
+      
+    }
+    var botonmodificar = $('<button>',{text:"Modificar"}).addClass("btn btn-primary");
+    var td = $('<td>');
+    td.append(botonmodificar);
+    trdetalles.append(td);
     tabla.append(trdetalles); 
   }
   
