@@ -29,5 +29,7 @@ Route::post('detalle/venta/{id}', 'VentaController@store');
 Route::get('detalle/modificarFichero/{id}', 'controllerModificar@index');
 Route::post('detalle/modificarFichero/{id}', 'controllerModificar@modificar');
 
+Route::post('detalle/venta/{fichero}', 'controllerModificar@modificar');
 
+Route::get('detalle/venta/{fichero}','controllerModificar@descargar');
 
