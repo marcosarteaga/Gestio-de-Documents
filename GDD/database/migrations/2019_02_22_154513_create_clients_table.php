@@ -51,6 +51,8 @@ class CreateClientsTable extends Migration
 
 
         });
+
+        
     }
 
     /**

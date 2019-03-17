@@ -20,6 +20,9 @@
     <script type="text/javascript" src="{{ asset('js/component-js.js')}}"></script> 
     <!--Js Modificar detalles clientes -->
     <script type="text/javascript" src="{{ asset('js/modificarDetalles.js')}}"></script>
+    <!--Js printar formularios de ficheros -->
+    <script type="text/javascript" src="{{ asset('js/formFicheros.js')}}"></script>
+
     <title>GDD</title>
   </head>
   <body> 

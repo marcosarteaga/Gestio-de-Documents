@@ -22,6 +22,12 @@ Route::get('detalle/cliente/{id}','ClientesController@editCliente')->name('Modif
 
 //Mostrar ventas
 Route::get('detalle/venta/{id}','VentaController@showVenta')->name('Modificar client');
+// subir fichero
+Route::post('detalle/venta/{id}', 'VentaController@store');
+
+
+Route::get('detalle/modificarFichero/{id}', 'controllerModificar@index');
+Route::post('detalle/modificarFichero/{id}', 'controllerModificar@modificar');
 
 
 
