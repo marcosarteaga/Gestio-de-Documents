@@ -39,7 +39,7 @@
 
   <input type="file" class="form-control-file" name="archivo" id="exampleFormControlFile1">
   <input type="hidden" name="tipo_archivo" value="factura">
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button type="submit" id="subir" class="btn btn-primary">Enviar</button>
   </form>
 </div>
 <br>
@@ -100,13 +100,33 @@
   {{ csrf_field() }} 
 
   <input type="file" class="form-control-file" name="archivo" id="exampleFormControlFile1">
-  <input type="hidden" name="tipo_archivo" value="tipo5">
+  <input type="hidden" name="tipo_archivo"  id="fichero" value="tipo5">
   <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
 </div>
 
 
+<script>
+  /* Comprobamos que el archivo subido sea de tipo pdf*/
+$(document).ready(function(){
+  $('input[type="file"]').on('change', function(){
+    var comprobarFichero = $( this ).val().split('.').pop();
+      if(comprobarFichero == "pdf"){
+        $('#subir').submit();
+      }
+      else
+      {
+        var errorPdf = ["nopdf"];
+        //createErrorMessage(errorPdf);
+        $('input[type="file"]').val('');
+        
+        
+      }
 
+
+  });
+});
+</script>
 
 
 <script type="text/javascript">
@@ -133,6 +153,7 @@
   detallesFichero(ficheroTipo5,"tipo5");
 
 </script>
+
 
 
 @stop

@@ -46,10 +46,10 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 	</tr>
 </table>
 <br>
-<input type="submit" name="" value="Actualizar">
+<input type="submit" class="btn btn-info" id="actualizar" disabled="" value="Actualizar">
 </form>
-
-<button onclick="modificar()" >Modificar</button>
+<br>
+<button class="btn btn-info" onclick="modificar()" >Modificar</button>
 
 
 <br><br>

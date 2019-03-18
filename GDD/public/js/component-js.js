@@ -127,6 +127,9 @@ function createErrorMessage(array){
   		if (value == "CP"){
   			mensajesError.push("El campo codigo postal no puede estar vacio.");
   		}
+      if (value == "nopdf") {
+        mensajesError.push("El Fichero no es de tipo PDF.");
+      }
 	});
 }
 /**
@@ -240,7 +243,9 @@ function detalles(Consulta,elementoAnteriorId){
 }
 
 
-function detallesFichero(Consulta,elementoAnteriorId){
+/* DetallesFichero printamos los ficheros pdf de cada venta con los iconos de modificar,visualizar y descargar */
+
+function detallesFichero(Consulta,elementoAnteriorId){  
   if (Consulta.length>=1) {
   var elementoAnterior = $("#"+elementoAnteriorId);
   var tabla = $("<table>").addClass("table");
