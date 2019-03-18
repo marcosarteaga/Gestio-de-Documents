@@ -3,9 +3,7 @@ var errores = 0;
 var logicaTelefono = "^[0-9]{9}$";
 var logicaMail ="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$";
 var logicaVacio = "^[^]+$";
-var logicaNIF = "^\d{8}[a-zA-Z]{1}$";
-var logicaCIF = "^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$";
-var logicaNIE = "^[XxTtYyZz]{1}[0-9]{7}[a-zA-Z]{1}$";
+var logicaCP = "^[0-9]{5}$";
 
 //Arrays de informacion interna
 var mensajesError = [];
@@ -47,6 +45,53 @@ function newlist(arrayDatos,type) {
 
     }
 }
+function detalles(Consulta,elementoAnteriorId){
+    if (Consulta.length>=1) {
+      var elementoAnterior = $("#"+elementoAnteriorId);
+    console.log(elementoAnterior);
+    var tabla = $("<table>").addClass("table");
+    var th = $('<thead>');
+    var trtitulos =$('<tr>').addClass("thead-dark");
+  
+    var tdid = $('<th>',{text: "ID"});
+    var tdnombre = $('<th>',{text:"Nombre"});
+    var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+  
+    trtitulos.append(tdid);
+    trtitulos.append(tdnombre);
+    trtitulos.append(tdfmodi);
+    th.append(trtitulos);
+    tabla.append(trtitulos);
+  
+    
+  
+    for(var datos in Consulta){
+      var trdetalles =$('<tr>');
+      var Claves = Object.keys(Consulta[datos]);
+      var Valores = Object.values(Consulta[datos]);
+      for(var key in Claves){
+        var titulo = Claves[key];
+        if (titulo=="nombreVentas") {
+          var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
+          var td = $('<td>');
+          td.append(ahred);
+          trdetalles.append(td);
+        }
+        else{
+          var td = $('<td>').text(Valores[key]);
+          trdetalles.append(td);
+        }
+        
+      }
+      
+      
+      tabla.append(trdetalles); 
+    }
+    
+    elementoAnterior.after(tabla);
+    }
+  }
+  
 //Añadimos al carrgar la pagina el onClick en el boton submit. 
 window.onload = function(){
     onClickForm("form");
@@ -122,10 +167,10 @@ function createErrorMessage(array){
   			mensajesError.push("El campo direccion no puede estar vacio.");
   		}
   		if (value == "NIF"){
-  			mensajesError.push("El campo CIF/NIF es incorrecto");
+  			mensajesError.push("El campo CIF/NIF es incorrecto.");
   		}
   		if (value == "CP"){
-  			mensajesError.push("El campo codigo postal no puede estar vacio.");
+  			mensajesError.push("CP Incorrecto.");
   		}
 	});
 }
@@ -143,6 +188,7 @@ function checkForm(idForm) {
     checkLabel("#inputPro",logicaVacio,idForm);
     checkLabel("#inputDir",logicaVacio,idForm);
     CheckNifCif("#inputNif",idForm);
+    checkLabel("#inputCP",logicaCP,idForm);
     
     if(errores===0){
         submit();
@@ -192,52 +238,6 @@ function BorrarDivError() {
 
 
 
-function detalles(Consulta,elementoAnteriorId){
-  if (Consulta.length>=1) {
-    var elementoAnterior = $("#"+elementoAnteriorId);
-  console.log(elementoAnterior);
-  var tabla = $("<table>").addClass("table");
-  var th = $('<thead>');
-  var trtitulos =$('<tr>').addClass("thead-dark");
-
-  var tdid = $('<th>',{text: "ID"});
-  var tdnombre = $('<th>',{text:"Nombre"});
-  var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
-
-  trtitulos.append(tdid);
-  trtitulos.append(tdnombre);
-  trtitulos.append(tdfmodi);
-  th.append(trtitulos);
-  tabla.append(trtitulos);
-
-  
-
-  for(var datos in Consulta){
-    var trdetalles =$('<tr>');
-    var Claves = Object.keys(Consulta[datos]);
-    var Valores = Object.values(Consulta[datos]);
-    for(var key in Claves){
-      var titulo = Claves[key];
-      if (titulo=="nombreVentas") {
-        var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
-        var td = $('<td>');
-        td.append(ahred);
-        trdetalles.append(td);
-      }
-      else{
-        var td = $('<td>').text(Valores[key]);
-        trdetalles.append(td);
-      }
-      
-    }
-    
-    
-    tabla.append(trdetalles); 
-  }
-  
-  elementoAnterior.after(tabla);
-  }
-}
 
 
 function detallesFichero(Consulta,elementoAnteriorId){

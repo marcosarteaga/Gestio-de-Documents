@@ -54,10 +54,9 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 
 <br><br>
 
-
-<h1 id="ventas" align="center" >Datos Ventas</h1>
-
-
+<a href="#"> <img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png"></a>
+<hr>
+<h1 id="ventas" align="Left" >Datos Ventas</h1>
 
 <script type="text/javascript">
 	var ConsultaVentas = <?php echo json_encode($infoVentas);?>;

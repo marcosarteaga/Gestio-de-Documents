@@ -45,8 +45,8 @@
 						<input required type="text" class="form-control" name='Localidad' id="inputLoc" placeholder="Localidad">
 					</div>
 					<div class="form-group col-md-4">
-						<label for="inputTel">CP</label>
-						<input required type="number" class="form-control" name='CP' id="inputTel" placeholder="Codigo Postal">
+						<label for="inputCP">CP</label>
+						<input required type="number" class="form-control" name='CP' id="inputCP" placeholder="Codigo Postal">
 					</div>
 				</div>
 			<button id="sub" class="btn btn-primary">Añadir</button>
