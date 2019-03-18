@@ -33,5 +33,6 @@ Route::post('detalle/modificarFichero/{id}', 'controllerModificar@modificar');
 //ruta para visualizar
 Route::post('detalle/venta/{fichero}', 'controllerModificar@modificar');
 //ruta para la descarga del fichero
-Route::get('detalle/venta/{fichero}','controllerModificar@descargar');
+//Route::get('detalle/venta/{fichero}','controllerModificar@descargar');
 
+Route::get('/documento/{fichero}' , 'controllerModificar@descargar');

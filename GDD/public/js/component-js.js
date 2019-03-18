@@ -285,7 +285,9 @@ function detallesFichero(Consulta,elementoAnteriorId){
     }
     var modi = $('<a>',{text:'modificar',href:"http://127.0.0.1:8000/detalle/modificarFichero/"+Consulta[datos]["id"]});
     var lupa = $('<a>',{text:'lupa',href:"http://127.0.0.1:8000/storage/"+Consulta[datos]["archivo"]});
-    var descargar = $('<a>',{text:'descargar',href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["archivo"]});
+    lupa.attr("target","_blank");
+    var descargar = $('<a>',{text:'descargar' });
+    descargar.attr("href","/documento/"+Consulta[datos]["archivo"]);
     
     var td = $('<td>');
     var td2 = $('<td>');

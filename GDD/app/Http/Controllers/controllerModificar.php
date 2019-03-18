@@ -30,12 +30,8 @@ class controllerModificar extends Controller
 	}
 
 	public function descargar($fichero){
-		$file_path = storage_path('app/'.$fichero);
-		$headers = [
-              'Content-Type' => 'application/pdf',
-           ];
-
-		return response()->download($$file_path, $fichero, $headers);
+		$file_path = public_path()."/storage/".$fichero;
+		return response()->download($file_path);
 		
 	}
 

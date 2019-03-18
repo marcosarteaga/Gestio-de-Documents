@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+@include('../navegacion')
 <h1 align="center" >Datos Cliente</h1>
 <?php
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
