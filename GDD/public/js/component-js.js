@@ -242,7 +242,7 @@ function BorrarDivError() {
 
 function detallesFichero(Consulta,elementoAnteriorId){
   if (Consulta.length>=1) {
-    var elementoAnterior = $("#"+elementoAnteriorId);
+  var elementoAnterior = $("#"+elementoAnteriorId);
   var tabla = $("<table>").addClass("table");
   tabla.attr({'style':'margin-left:30px;'});
   var th = $('<thead>');
@@ -266,7 +266,7 @@ function detallesFichero(Consulta,elementoAnteriorId){
     var Valores = Object.values(Consulta[datos]);
     for(var key in Claves){
       var titulo = Claves[key];
-      if (titulo=="archivo") {
+      if (titulo=="") {
         var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
         var td = $('<td>');
         td.append(ahred);
@@ -278,10 +278,19 @@ function detallesFichero(Consulta,elementoAnteriorId){
       }
       
     }
-    var botonmodificar = $('<button>',{text:"Modificar"}).addClass("btn btn-primary");
+    var modi = $('<a>',{text:'modificar',href:"http://127.0.0.1:8000/detalle/modificarFichero/"+Consulta[datos]["id"]});
+    var lupa = $('<a>',{text:'lupa',href:"http://127.0.0.1:8000/storage/"+Consulta[datos]["archivo"]});
+    var descargar = $('<a>',{text:'descargar',href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["archivo"]});
+    
     var td = $('<td>');
-    td.append(botonmodificar);
+    var td2 = $('<td>');
+    var td3 = $('<td>');
+    td.append(modi);
+    td2.append(lupa);
+    td3.append(descargar);
     trdetalles.append(td);
+    trdetalles.append(td2);
+    trdetalles.append(td3);
     tabla.append(trdetalles); 
   }
   
