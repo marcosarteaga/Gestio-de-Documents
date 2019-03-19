@@ -5,6 +5,8 @@ function modificar(){
 	trPadre.prop('disabled', false);
 	trPadre2.prop('disabled', false);
 	trPadre3.prop('disabled', false);
+	var btnActualizar = $("#actualizar");
+	btnActualizar.prop('disabled', false);
 }
 
 
