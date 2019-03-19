@@ -5,7 +5,7 @@
 
 	 <div class='page-header'><h1 align='center' >Nuevo Cliente</h1></div> 
 
-	 <form method='post' id='form' action('ClientesController@saveClient')>
+	 <form method='post' id='form' class="cliente" action('ClientesController@saveClient')>
 		 {{csrf_field()}}
 			<div class="form-row">
 				<div class="form-group col-md-6">

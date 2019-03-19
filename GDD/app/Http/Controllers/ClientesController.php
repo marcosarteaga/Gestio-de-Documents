@@ -45,8 +45,7 @@ class ClientesController extends Controller
     }
 
     //vista formulario
-    public function getCreateClient()
-
+    public function getCreateClient($id)
     {
         return view('componentes.formClientes');
     }
@@ -73,5 +72,23 @@ class ClientesController extends Controller
 		}catch(Exception $e){
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
-	}
+    }
+    //Enviar vista formulario venta
+    public function getCreateVenta()
+    {
+        return view('componentes.formVentas');
+    }
+    //Añadir venta
+    public function saveVenta(Request $request,$id){
+        try{
+            $venta = new ventas;
+                $venta->id_cliente = $id;
+                $venta->Comprador = $request->input('comprador');
+                $venta->nombreVenta = $request->input('nombreVenta');
+                $venta->save();
+            return back();
+        }catch(Exception $e){
+            return back()->withErrors(['SVError'=>'Error del servidor @Save']);
+        }
+    }
 }

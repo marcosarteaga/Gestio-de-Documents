@@ -46,23 +46,35 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 	</tr>
 </table>
 <br>
-<input type="submit" name="" value="Actualizar">
+<input class="btn btn-info" type="submit" name="" value="Actualizar">
+
 </form>
-
-<button onclick="modificar()" >Modificar</button>
-
-
+<br>
+<button class="btn btn-secondary" onclick="modificar()" >Modificar</button>
 <br><br>
+<a href="componentes/formVentas"> 
+	<img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png">
+</a>
 
-<a href="#"> <img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png"></a>
-<hr>
 <h1 id="ventas" align="Left" >Datos Ventas</h1>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
 
-<script type="text/javascript">
-	var ConsultaVentas = <?php echo json_encode($infoVentas);?>;
-    detalles(ConsultaVentas,"ventas");
-</script>
-
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha Modificacion</th>
+        </tr>
+    </thead>
+    <tbody class="Venta">
+		<script type="text/javascript">
+			var ConsultaVentas = <?php echo json_encode($infoVentas);?>;
+			newlist(ConsultaVentas,"Ventas");
+			//detalles(ConsultaVentas,"ventas");
+		</script>
+	</tbody>
+</table>
 
 
 @stop

@@ -25,11 +25,13 @@ Route::get('detalle/venta/{id}','VentaController@showVenta')->name('Modificar cl
 // subir fichero
 Route::post('detalle/venta/{id}', 'VentaController@store');
 
-
+//Ficheros
 Route::get('detalle/modificarFichero/{id}', 'controllerModificar@index');
 Route::post('detalle/modificarFichero/{id}', 'controllerModificar@modificar');
 
 Route::post('detalle/venta/{fichero}', 'controllerModificar@modificar');
-
 Route::get('detalle/venta/{fichero}','controllerModificar@descargar');
 
+//Crear venta
+Route::get('detalle/cliente/componentes/formVentas/{id}','ClientesController@getCreateVenta')->name('Crear Venta');
+Route::post('detalle/cliente/componentes/formVentas/{id}','ClientesController@saveVenta')->name('Crear Venta');

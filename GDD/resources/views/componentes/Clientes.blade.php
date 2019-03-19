@@ -21,6 +21,5 @@
             newlist(datos_json,"Clientes");
         </script>
     </tbody>
-<!--pasamos todo el array-->
 </table>	
 @stop

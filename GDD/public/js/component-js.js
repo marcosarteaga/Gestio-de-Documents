@@ -18,7 +18,6 @@ function newlist(arrayDatos,type) {
     if(type=="Clientes"){
         /* Recorremos todo el array */
         for (var i = 0; i< arrayDatos.length; i++) {
-            //console.log(arrayDatos[i]);
             /* Creamos el elemento de la tabla para mostrar los datos y añadimos el link*/
             $("tbody").append(
                 $("<tr>").append(
@@ -31,67 +30,23 @@ function newlist(arrayDatos,type) {
                     $("<td>").append(
                         $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["CP"])
                     )));
-            /*Row link in process*/
-            /*$("tbody").append(
-                $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(
-                    $("<tr>").append(
-                        $("<td>").append(arrayDatos[i]["Nom"]),
-                        $("<td>").append(arrayDatos[i]["NIF"]),
-                        $("<td>").append(arrayDatos[i]["CP"])
-                    )));*/
         }
     }
     if(type=="Ventas"){
+        for(var i= 0; i< arrayDatos.length; i++){
+            //
+            $("tbody.Venta").append(
+                $("<tr>").append(
+                    $("<td>").text(arrayDatos[i]["id"]),
+                    $("<td>").append(
+                        $("<a>").attr("href","http://127.0.0.1:8000/detalle/venta/"+arrayDatos[i]["id"]).text(arrayDatos[i]["nombreVentas"])),
+                    $("<td>").text(arrayDatos[i]["updated_at"])
 
-    }
-}
-function detalles(Consulta,elementoAnteriorId){
-    if (Consulta.length>=1) {
-      var elementoAnterior = $("#"+elementoAnteriorId);
-    console.log(elementoAnterior);
-    var tabla = $("<table>").addClass("table");
-    var th = $('<thead>');
-    var trtitulos =$('<tr>').addClass("thead-dark");
-  
-    var tdid = $('<th>',{text: "ID"});
-    var tdnombre = $('<th>',{text:"Nombre"});
-    var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
-  
-    trtitulos.append(tdid);
-    trtitulos.append(tdnombre);
-    trtitulos.append(tdfmodi);
-    th.append(trtitulos);
-    tabla.append(trtitulos);
-  
-    
-  
-    for(var datos in Consulta){
-      var trdetalles =$('<tr>');
-      var Claves = Object.keys(Consulta[datos]);
-      var Valores = Object.values(Consulta[datos]);
-      for(var key in Claves){
-        var titulo = Claves[key];
-        if (titulo=="nombreVentas") {
-          var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
-          var td = $('<td>');
-          td.append(ahred);
-          trdetalles.append(td);
+                )
+            );
         }
-        else{
-          var td = $('<td>').text(Valores[key]);
-          trdetalles.append(td);
-        }
-        
-      }
-      
-      
-      tabla.append(trdetalles); 
     }
-    
-    elementoAnterior.after(tabla);
-    }
-  }
-  
+}  
 //Añadimos al carrgar la pagina el onClick en el boton submit. 
 window.onload = function(){
     onClickForm("form");
@@ -171,7 +126,11 @@ function createErrorMessage(array){
   		}
   		if (value == "CP"){
   			mensajesError.push("CP Incorrecto.");
-  		}
+          }
+        if  (value == "nombreVenta"){
+            mensajesError.push("El campo Nombre esta vacio");
+
+        }
 	});
 }
 /**
@@ -180,16 +139,22 @@ function createErrorMessage(array){
  */
 function checkForm(idForm) {
     errores = 0;
-    checkLabel("#inputTel",logicaTelefono,idForm);
-    checkLabel("#inputEmail",logicaMail,idForm);
-    checkLabel("#inputLoc",logicaVacio,idForm);
-    checkLabel("#inputNombre",logicaVacio,idForm);
-    checkLabel("#inputApellidos",logicaVacio,idForm);
-    checkLabel("#inputPro",logicaVacio,idForm);
-    checkLabel("#inputDir",logicaVacio,idForm);
-    CheckNifCif("#inputNif",idForm);
-    checkLabel("#inputCP",logicaCP,idForm);
-    
+    if($("#form.cliente").length){
+        //form new Cliente
+        checkLabel("#inputTel",logicaTelefono,idForm);
+        checkLabel("#inputEmail",logicaMail,idForm);
+        checkLabel("#inputLoc",logicaVacio,idForm);
+        checkLabel("#inputNombre",logicaVacio,idForm);
+        checkLabel("#inputApellidos",logicaVacio,idForm);
+        checkLabel("#inputPro",logicaVacio,idForm);
+        checkLabel("#inputDir",logicaVacio,idForm);
+        CheckNifCif("#inputNif",idForm);
+        checkLabel("#inputCP",logicaCP,idForm);
+    }
+    if($('#form.venta').length){
+        //form new venta
+        checkLabel("#inputVn",logicaVacio,idForm);
+    }
     if(errores===0){
         submit();
     }else{
