@@ -47,15 +47,11 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 	</tr>
 </table>
 <br>
-<<<<<<< HEAD
-<input class="btn btn-info" type="submit" name="" value="Actualizar">
-=======
 <input type="submit" class="btn btn-info" id="actualizar" disabled="" value="Actualizar">
 </form>
 <br>
 <button class="btn btn-info" onclick="modificar()" >Modificar</button>
 
->>>>>>> ad570cf9231e7de08e707da422d8fe0c6ef4c89b
 
 </form>
 <br>
