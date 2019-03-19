@@ -14,7 +14,7 @@ class ClientesController extends Controller
     //mostrar clientes
     public function getClientes()
     {
-        $arrayClientes = Cliente::all();
+        $arrayClientes = DB::table('clientes')->paginate(10);
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
     //mostrar ventas
@@ -74,4 +74,13 @@ class ClientesController extends Controller
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
 	}
+
+
+    public function filtro(Request $request)
+    {   
+        $registroBusqueda = $request->input('filtro');
+        $arrayClientes = DB::table('clientes')->where('Nom','like','%'.$registroBusqueda.'%')->orwhere('Localidad','like','%'.$registroBusqueda.'%')->orwhere('NIF','like','%'.$registroBusqueda.'%')->paginate(10);
+        
+        return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
+    }
 }

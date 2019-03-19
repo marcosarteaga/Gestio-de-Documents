@@ -31,6 +31,9 @@ function newlist(arrayDatos,type) {
                         $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["NIF"])
                     ),
                     $("<td>").append(
+                        $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["Localidad"])
+                        ),
+                        $("<td>").append(
                         $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["CP"])
                     )));
             /*Row link in process*/

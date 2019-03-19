@@ -36,3 +36,6 @@ Route::post('detalle/venta/{fichero}', 'controllerModificar@modificar');
 //Route::get('detalle/venta/{fichero}','controllerModificar@descargar');
 
 Route::get('/documento/{fichero}' , 'controllerModificar@descargar');
+
+//routa para usar el controlador del filtro
+Route::get('/', 'ClientesController@filtro');
