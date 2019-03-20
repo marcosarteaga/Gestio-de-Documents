@@ -1,0 +1,10 @@
+¿Que a ido mal?
+    -Se aproximo mal las horas.
+    -No se contemplo el refactorizar el codigo,
+     en el caso de que la logica hasta ahora no se pueda usar para seguir con el proyecto.
+    -
+    
+¿Que podemos mejorar?
+    -Calular mejor las horas por especificacion.
+    -Contemplar el refactorizado en el codigo,
+     en los casos en que la estructura seguida no se pueda usar para las especificaciones futuras.
