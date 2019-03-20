@@ -40,3 +40,9 @@ Route::get('/documento/{fichero}' , 'controllerModificar@descargar');
 //Crear venta
 Route::get('detalle/cliente/componentes/formVentas/{id}','ClientesController@getCreateVenta')->name('Crear Venta');
 Route::post('detalle/cliente/componentes/formVentas/{id}','ClientesController@saveVenta')->name('Crear Venta');
+
+//routa para usar el controlador del filtro
+Route::get('/', 'ClientesController@filtro');
+
+//filtro estado fecha
+Route::get('detalle/cliente/{id}', 'ClientesController@filtrosEstadoFecha');

@@ -14,7 +14,7 @@ class ClientesController extends Controller
     //mostrar clientes
     public function getClientes()
     {
-        $arrayClientes = Cliente::all();
+        $arrayClientes = DB::table('clientes')->paginate(10);
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
     }
     //mostrar ventas
@@ -38,9 +38,10 @@ class ClientesController extends Controller
 
     }
 
-    public function editCliente($id){
+     public function editCliente($id){
         $cliente=Cliente::find($id);
-        return view('detalle.cliente',array('cliente'=>$cliente));
+        $infoVentas = DB::table('ventas')->select('id','nombreVentas','updated_at','Estado')->where('id_cliente', $id)->get();
+        return view('detalle.cliente',array('cliente'=>$cliente),array('infoVentas'=>$infoVentas));
 
     }
 
@@ -72,6 +73,7 @@ class ClientesController extends Controller
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
     }
+
     //Enviar vista formulario venta
     public function getCreateVenta($id)
     {
@@ -81,14 +83,57 @@ class ClientesController extends Controller
     public function saveVenta(Request $request){
         //try{
             $id = $request->input('id');
+            //var_dump($request);
             $venta = new ventas;
                 $venta->id_cliente = $id;
                 $venta->Comprador = $request->input('Comprador');
                 $venta->nombreVentas = $request->input('nombreVenta');
                 $venta->save();
-            return self::editCliente($id);
+             return self::editCliente($id);
         /*}catch(Exception $e){
             return back()->withErrors(['SVError'=>'Error del servidor @Save']);
         }*/
+	}
+
+
+    public function filtro(Request $request)
+    {   
+        $registroBusqueda = $request->input('filtro');
+        $arrayClientes = DB::table('clientes')->where('Nom','like','%'.$registroBusqueda.'%')->orwhere('Localidad','like','%'.$registroBusqueda.'%')->orwhere('NIF','like','%'.$registroBusqueda.'%')->paginate(10);
+        
+        return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
+    }
+
+
+
+        public function filtrosEstadoFecha(Request $request, $id)
+    {   
+        $Fecha=$request->input('filtro');
+        $Estado=$request->input('estado');
+       
+        
+        if ($Fecha!="" || $Estado=="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+        elseif ($Fecha!="" || $Estado=="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('Estado',$Estado)->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+        elseif ($Fecha!="" || $Estado!="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->where('Estado',$Estado)->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+       
+        
     }
 }

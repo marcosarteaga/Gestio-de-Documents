@@ -28,6 +28,9 @@ function newlist(arrayDatos,type) {
                         $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["NIF"])
                     ),
                     $("<td>").append(
+                        $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["Localidad"])
+                        ),
+                        $("<td>").append(
                         $("<a>").attr("href","detalle/cliente/"+arrayDatos[i]["id"]).append(arrayDatos[i]["CP"])
                     )));
         }
@@ -212,6 +215,54 @@ function BorrarDivError() {
 
 
 
+function detalles(Consulta,elementoAnteriorId){
+  if (Consulta.length>=1) {
+    var elementoAnterior = $("#"+elementoAnteriorId);
+  console.log(elementoAnterior);
+  var tabla = $("<table>").addClass("table");
+  var th = $('<thead>');
+  var trtitulos =$('<tr>').addClass("thead-dark");
+
+  var tdid = $('<th>',{text: "ID"});
+  var tdnombre = $('<th>',{text:"Nombre"});
+  var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+  var tdEstado = $('<th>',{text:"Estado"});
+
+  trtitulos.append(tdid);
+  trtitulos.append(tdnombre);
+  trtitulos.append(tdfmodi);
+  trtitulos.append(tdEstado);
+  th.append(trtitulos);
+  tabla.append(trtitulos);
+
+  
+
+  for(var datos in Consulta){
+    var trdetalles =$('<tr>');
+    var Claves = Object.keys(Consulta[datos]);
+    var Valores = Object.values(Consulta[datos]);
+    for(var key in Claves){
+      var titulo = Claves[key];
+      if (titulo=="nombreVentas") {
+        var ahred = $('<a>',{text:Valores[key],href:"http://127.0.0.1:8000/detalle/venta/"+Consulta[datos]["id"]}); 
+        var td = $('<td>');
+        td.append(ahred);
+        trdetalles.append(td);
+      }
+      else{
+        var td = $('<td>').text(Valores[key]);
+        trdetalles.append(td);
+      }
+      
+    }
+    
+    
+    tabla.append(trdetalles); 
+  }
+  
+  elementoAnterior.after(tabla);
+  }
+}
 
 
 /* DetallesFichero printamos los ficheros pdf de cada venta con los iconos de modificar,visualizar y descargar */
@@ -227,6 +278,7 @@ function detallesFichero(Consulta,elementoAnteriorId){
   var tdid = $('<th>',{text: "ID"});
   var tdnombre = $('<th>',{text:"Nombre"});
   var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+
 
   trtitulos.append(tdid);
   trtitulos.append(tdnombre);

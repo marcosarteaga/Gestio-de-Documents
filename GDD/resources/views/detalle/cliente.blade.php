@@ -6,7 +6,9 @@
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $idCliente = explode("/",$url);
     $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
-    $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','nombreVentas','updated_at']);
+    
+    
+
 
 echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 ?>
@@ -45,39 +47,30 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 	</tr>
 </table>
 <br>
-<input type="submit" class="btn btn-info" id="actualizar" disabled="" value="Actualizar">
+<input type="submit" class="" id="actualizar" disabled="" value="Actualizar">
 </form>
 <br>
 <button class="btn btn-info" onclick="modificar()" >Modificar</button>
 
 
-</form>
-<br>
-
 <br><br>
+
 <a href="componentes/formVentas/{{$idCliente[5]}}"> 
 	<img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png">
 </a>
-
 <h1 id="ventas" align="Left" >Datos Ventas</h1>
-<hr>
-<table class="table">
-    <thead class="thead-dark">
+ <?php
+ echo "<form method='get' id='form' class='form-inline' action='/detalle/cliente/$idCliente[5]'>";?>
+ <input type="date" placeholder="Buscar" aria-label="Search" name="filtro">
+ <input type="radio" name="estado" value="Activo">Activo
+ <input type="radio" name="estado" value="No Activo">No Activo
+ <input class="btn btn-info" type="submit"  name="Buscar" value="Buscar">
+</form>
 
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Fecha Modificacion</th>
-        </tr>
-    </thead>
-    <tbody class="Venta">
-		<script type="text/javascript">
-			var ConsultaVentas = <?php echo json_encode($infoVentas);?>;
-			newlist(ConsultaVentas,"Ventas");
-			//detalles(ConsultaVentas,"ventas");
-		</script>
-	</tbody>
-</table>
-
+<br><br>
+<script type="text/javascript">
+	var ConsultaVentas = <?php echo json_encode($infoVentas);?>;
+    detalles(ConsultaVentas,"form");
+</script>
 
 @stop

@@ -13,7 +13,7 @@
             <label for="inputCom">Comprador</label>
             <input required type="text" class="form-control" name='Comprador' id="inputCom" placeholder="Nombre del comprador">
             <label for="inputVn">Nombre de la venta</label>
-            <input required type="text" class="form-control" name='nombreVenta' id="inputVn" placeholder="Nombre de la venta">
+            <input required type="text" class="form-control" name='nombreVenta' id="inputVn" placeholder="Nombre de la venta">        
         </div>
         <button id="sub" class="btn btn-primary">Añadir</button>
 </form>
