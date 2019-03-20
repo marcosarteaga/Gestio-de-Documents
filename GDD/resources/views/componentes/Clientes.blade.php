@@ -8,7 +8,7 @@
 
 <hr>
 <form method="get" class="form-inline" action="/">
-    <input type="text" class="form-control" placeholder="Buscar" aria-label="Search" name="filtro">
+    <input type="text"  class="form-control" placeholder="Buscar" aria-label="Search" name="filtro">
     <input class="btn btn-info" type="submit" name="Buscar" value="Buscar">
 </form>
 <br>
