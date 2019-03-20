@@ -16,38 +16,29 @@
 1. php artisan migrate:refresh
 2. php artisan db:seed --class=info_temp
 
-
+# Visualizar PDF
+1.sudo php artisan storage:link
 # Retrospectiva
 Nil:
 
 ¿Que a ido mal?
-    -Muchos baches en la parte del laravel para poder gestionar cambios de view.
-    -La parte de los formularios es bastante espesa al combinar el larabel con el jQuery y me a costado en paticular.
-    -La gestion integra de errores en el formulario.
-    -Pulcritud del codigo.
-    
+    -Se aproximo mal las horas.
+    -No se contemplo el refactorizar el codigo,
+     en el caso de que la logica hasta ahora no se pueda usar para seguir con el proyecto.ç
+     
 ¿Que podemos mejorar?
-    -Podriamos simplificar mas el codigo pero no llegariamos al final del sprint
-
-Opinion personal
-    -Mi compañero entiende todo lo que le explico para poder mejorar,
-        siempre que puede me pregunta, para poder llegar a una solucion unica ,
-        si el codigo afecta a la parte que estoy haciendo,
-        me explica que tiene que cambiar para que entienda la logica que a seguido.
+    -Calular mejor las horas por especificacion.
+    -Contemplar el refactorizado en el codigo,
+     en los casos en que la estructura seguida no se pueda usar para las especificaciones futuras.
 
 Marcos:
 
 ¿Que a ido mal?
-    -La parte de laravel sigue siendo un poco frustrante cuando intentas combinar rutas y funciones del controlador
-    -He tenido problemas para poder implementar los formularios
+     -No hemos contemplado la ampliacion en el codigo.
+  
 
 
 ¿Que podemos mejorar?
-    -Mejorar el codigo y organizarlo
-    -Conocer un poco mas sobre laravel
+-Creo que deberiamos plantearnos bien los proyectos antes de empezarlos, ya que luego nos pasa como ahora que no comteplamos todas las ampliaciones.
 
 
-
-Opinion personal:
--Laravel todavia no acabo de comprenderlo, ya que pienso que ya lo entiendo pero luego cuando tengo que combinar algo que esta hecho con algo nuevo me dan errores, y por culpa de eso dedicamos mas tiempo del necesario para implementar cosas nuevas.
--Lo positivo que entre mi compañero y yo conseguimos arreglar los errores, ademas de haber una buena dinamica de trabajo y buen ambiente entre ambos.
