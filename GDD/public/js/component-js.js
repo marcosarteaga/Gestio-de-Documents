@@ -209,10 +209,12 @@ function detalles(Consulta,elementoAnteriorId){
   var tdid = $('<th>',{text: "ID"});
   var tdnombre = $('<th>',{text:"Nombre"});
   var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+  var tdEstado = $('<th>',{text:"Estado"});
 
   trtitulos.append(tdid);
   trtitulos.append(tdnombre);
   trtitulos.append(tdfmodi);
+  trtitulos.append(tdEstado);
   th.append(trtitulos);
   tabla.append(trtitulos);
 
@@ -259,6 +261,7 @@ function detallesFichero(Consulta,elementoAnteriorId){
   var tdid = $('<th>',{text: "ID"});
   var tdnombre = $('<th>',{text:"Nombre"});
   var tdfmodi = $('<th>',{text:"Fecha Modificacion"});
+
 
   trtitulos.append(tdid);
   trtitulos.append(tdnombre);

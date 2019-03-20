@@ -1,7 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <a href="componentes/formClientes"> <img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png"></a>
+
 @include('../navegacion')
+
 <h1>Cartera de Clientes</h1>
 
 <hr>

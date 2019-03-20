@@ -38,9 +38,10 @@ class ClientesController extends Controller
 
     }
 
-    public function editCliente($id){
+     public function editCliente($id){
         $cliente=Cliente::find($id);
-        return view('detalle.cliente',array('cliente'=>$cliente));
+        $infoVentas = DB::table('ventas')->select('id','nombreVentas','updated_at','Estado')->where('id_cliente', $id)->get();
+        return view('detalle.cliente',array('cliente'=>$cliente),array('infoVentas'=>$infoVentas));
 
     }
 
@@ -82,5 +83,38 @@ class ClientesController extends Controller
         $arrayClientes = DB::table('clientes')->where('Nom','like','%'.$registroBusqueda.'%')->orwhere('Localidad','like','%'.$registroBusqueda.'%')->orwhere('NIF','like','%'.$registroBusqueda.'%')->paginate(10);
         
         return view('componentes.Clientes',array('arrayClientes'=> $arrayClientes));
+    }
+
+
+
+        public function filtrosEstadoFecha(Request $request, $id)
+    {   
+        $Fecha=$request->input('filtro');
+        $Estado=$request->input('estado');
+       
+        
+        if ($Fecha!="" || $Estado=="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+        elseif ($Fecha!="" || $Estado=="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('Estado',$Estado)->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+        elseif ($Fecha!="" || $Estado!="") {
+            $Fecha=$request->input('filtro');
+            $Estado=$request->input('estado');
+            $clientes = DB::table('clientes')->where('id', $id)->get();
+            $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->where('Estado',$Estado)->get();
+            return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
+        }
+       
+        
     }
 }

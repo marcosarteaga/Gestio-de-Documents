@@ -39,3 +39,6 @@ Route::get('/documento/{fichero}' , 'controllerModificar@descargar');
 
 //routa para usar el controlador del filtro
 Route::get('/', 'ClientesController@filtro');
+
+//filtro estado fecha
+Route::get('detalle/cliente/{id}', 'ClientesController@filtrosEstadoFecha');
