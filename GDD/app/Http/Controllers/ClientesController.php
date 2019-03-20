@@ -25,6 +25,7 @@ class ClientesController extends Controller
     public function update(Request $request, $id){
         
         $cliente=Cliente::find($id);
+        $infoVentas = DB::table('ventas')->select('id','nombreVentas','updated_at','Estado')->where('id_cliente', $id)->get();
         $cliente->Nom = $request->input('Nom');
                 $cliente->Cognom = $request->input('Cognom');
                 $cliente->Email = $request->input('Email');
@@ -34,7 +35,7 @@ class ClientesController extends Controller
                 $cliente->Localidad = $request->input('Localidad');
                 $cliente->CP = $request->input('CP');
             $cliente->save();
-        return view('detalle.cliente', array('cliente'=>$cliente));
+        return view('detalle.cliente',array('cliente'=>$cliente),array('infoVentas'=>$infoVentas));
 
     }
 
@@ -93,27 +94,30 @@ class ClientesController extends Controller
         $Estado=$request->input('estado');
        
         
-        if ($Fecha!="" || $Estado=="") {
+        if ($Fecha!="" && $Estado=="") {
             $Fecha=$request->input('filtro');
             $Estado=$request->input('estado');
             $clientes = DB::table('clientes')->where('id', $id)->get();
             $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->get();
             return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
         }
-        elseif ($Fecha!="" || $Estado=="") {
+        elseif ($Fecha!="" && $Estado=="") {
             $Fecha=$request->input('filtro');
             $Estado=$request->input('estado');
             $clientes = DB::table('clientes')->where('id', $id)->get();
             $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('Estado',$Estado)->get();
             return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
         }
-        elseif ($Fecha!="" || $Estado!="") {
+        elseif ($Fecha!="" && $Estado!="") {
             $Fecha=$request->input('filtro');
             $Estado=$request->input('estado');
             $clientes = DB::table('clientes')->where('id', $id)->get();
             $venta = ventas::select('id', 'nombreVentas','Estado','updated_at')->where('id_cliente',$id)->where('updated_at','like',$Fecha.'%')->where('Estado',$Estado)->get();
             return view('detalle.cliente',array('cliente'=>$clientes),array('infoVentas'=>$venta));
         }
+        $cliente=Cliente::find($id);
+        $infoVentas = DB::table('ventas')->select('id','nombreVentas','updated_at','Estado')->where('id_cliente', $id)->get();
+        return view('detalle.cliente',array('cliente'=>$cliente),array('infoVentas'=>$infoVentas));
        
         
     }

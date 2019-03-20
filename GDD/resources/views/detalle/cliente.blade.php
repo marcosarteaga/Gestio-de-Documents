@@ -21,9 +21,9 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 		<td><b>Email</b></td>
 	</tr>
 	<tr id="detalles" >
-		<td><input disabled type="text" name="Nom" value="{{$cliente[0]->Nom}}"></td>
-		<td><input disabled type="text" name="Cognom" value="{{$cliente[0]->Cognom}}"></td>
-		<td><input disabled type="text" name="Email" value="{{$cliente[0]->Email}}"></td>
+		<td><input disabled type="text" name="Nom" value="{{$cliente->Nom}}"></td>
+		<td><input disabled type="text" name="Cognom" value="{{$cliente->Cognom}}"></td>
+		<td><input disabled type="text" name="Email" value="{{$cliente->Email}}"></td>
 	</tr>
 	<tr>
 		<td><b>Telefono</b></td>
@@ -31,9 +31,9 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 		<td><b>NIF</b></td>
 	</tr>
 	<tr id="detalles2">
-		<td><input  disabled type="number" name="Telefon" value="{{$cliente[0]->Telefon}}"></td>
-		<td><input  disabled type="text" name="Direccion" value="{{$cliente[0]->Direccion}}"></td>
-		<td><input  disabled type="text" name="nif" value="{{$cliente[0]->NIF}}" ></td>
+		<td><input  disabled type="number" name="Telefon" value="{{$cliente->Telefon}}"></td>
+		<td><input  disabled type="text" name="Direccion" value="{{$cliente->Direccion}}"></td>
+		<td><input  disabled type="text" name="nif" value="{{$cliente->NIF}}" ></td>
 	</tr>
 	<tr>
 		<td><b>Provincia</b></td>
@@ -41,9 +41,9 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 		<td><b>CP</b></td>
 	</tr>
 	<tr id="detalles3">
-		<td><input  disabled type="text" name="Provincia" value="{{$cliente[0]->Provincia}}"></td>
-		<td><input disabled type="text" name="Localidad" value="{{$cliente[0]->Localidad}}"></td>
-		<td><input  disabled type="text" name="CP" value="{{$cliente[0]->CP}}"></td>		
+		<td><input  disabled type="text" name="Provincia" value="{{$cliente->Provincia}}"></td>
+		<td><input disabled type="text" name="Localidad" value="{{$cliente->Localidad}}"></td>
+		<td><input  disabled type="text" name="CP" value="{{$cliente->CP}}"></td>		
 	</tr>
 </table>
 <br>
