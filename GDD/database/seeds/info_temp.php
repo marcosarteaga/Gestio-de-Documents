@@ -42,24 +42,49 @@ class info_temp extends Seeder
     }
     private function seedClientes(){
         DB::table('clientes')->delete();
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 20; $i++) { 
             $c = new Cliente;
             $c = self::newClient();
             $c->save();
         }
     }
+
+    function asignarEstado(){
+        $id_cliente = rand(1,16);
+        $estadorandom = rand(0,1);
+        $estado = '';
+         if($estadorandom == 0){
+            $estado = "No Activo";
+            return $estado ;
+        } 
+        else if($estadorandom == 1){
+            $estado = "Activo";
+            return $estado;
+        }
+    }
+
+
+
+
+
     private function newVenta(){
         $nVenta = new ventas;
         $nVenta->id_Cliente = rand(1,10);
         $nVenta->Comprador = Str::random(10);
         $nVenta->nombreVentas = Str::random(10);
+        $nVenta->Estado = self::asignarEstado();
         return $nVenta; 
     }
+
+
+
+
     private function seedVentas(){
         DB::table('ventas')->delete();
-        for ($i=0; $i <20; $i++) { 
+        for ($i=0; $i <40; $i++) { 
             $v = new ventas;
             $v = self::newVenta();
+
             $v->save();
         }
 

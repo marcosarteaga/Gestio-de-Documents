@@ -34,6 +34,7 @@ class CreateClientsTable extends Migration
             $table->string('Comprador');
             $table->string('nombreVentas');
             $table->timestamps();
+            $table->string('Estado');
             $table->foreign('id_cliente')->references('id')->on('clientes');
 
 
