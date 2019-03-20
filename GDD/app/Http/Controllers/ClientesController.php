@@ -45,7 +45,7 @@ class ClientesController extends Controller
     }
 
     //vista formulario
-    public function getCreateClient($id)
+    public function getCreateClient()
     {
         return view('componentes.formClientes');
     }
@@ -67,28 +67,28 @@ class ClientesController extends Controller
 				$cliente->CP = $request->input('CP');
             $cliente->save();
             $arrayClientes = Cliente::all();
-			//$clientes = Cliente::select('id', 'Nom', 'Cognom','Email', 'Telefon', 'Direccio', 'NIF', 'Provincia','Localidad','CP')->get();
 			return redirect('/');
 		}catch(Exception $e){
 			return back()->withErrors(['SVError'=>'Error del servidor @Save']);		
 		}
     }
     //Enviar vista formulario venta
-    public function getCreateVenta()
+    public function getCreateVenta($id)
     {
         return view('componentes.formVentas');
     }
     //Añadir venta
-    public function saveVenta(Request $request,$id){
-        try{
+    public function saveVenta(Request $request){
+        //try{
+            $id = $request->input('id');
             $venta = new ventas;
                 $venta->id_cliente = $id;
-                $venta->Comprador = $request->input('comprador');
-                $venta->nombreVenta = $request->input('nombreVenta');
+                $venta->Comprador = $request->input('Comprador');
+                $venta->nombreVentas = $request->input('nombreVenta');
                 $venta->save();
-            return back();
-        }catch(Exception $e){
+            return self::editCliente($id);
+        /*}catch(Exception $e){
             return back()->withErrors(['SVError'=>'Error del servidor @Save']);
-        }
+        }*/
     }
 }

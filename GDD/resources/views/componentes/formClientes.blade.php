@@ -4,7 +4,6 @@
 <!-- Formulario Insert Cliente -->
 
 	 <div class='page-header'><h1 align='center' >Nuevo Cliente</h1></div> 
-
 	 <form method='post' id='form' class="cliente" action('ClientesController@saveClient')>
 		 {{csrf_field()}}
 			<div class="form-row">

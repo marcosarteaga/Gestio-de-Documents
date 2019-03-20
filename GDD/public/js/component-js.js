@@ -133,6 +133,9 @@ function createErrorMessage(array){
         if(value =="nombreVenta"){
             mensajesError.push("Nombre de la venta vacio");
         }
+        if(value == "Comprador"){
+            mensajesError.push("Nombre del comprador vacio");
+        }
 	});
 }
 /**
@@ -141,6 +144,7 @@ function createErrorMessage(array){
  */
 function checkForm(idForm) {
     errores = 0;
+    
     if($("#form.cliente").length){
         //form new Cliente
         checkLabel("#inputTel",logicaTelefono,idForm);
@@ -156,15 +160,18 @@ function checkForm(idForm) {
     if($('#form.venta').length){
         //form new venta
         checkLabel("#inputVn",logicaVacio,idForm);
+        checkLabel("#inputCom",logicaVacio,idForm);
     }
     if(errores===0){
-        submit();
+        $("#form").submit();
+        
     }else{
         recogerErrores();
         createErrorMessage(inputNames);
         MostrarError(mensajesError);
         inputNames.length = 0;
         mensajesError.length = 0;
+        
 
     }
 

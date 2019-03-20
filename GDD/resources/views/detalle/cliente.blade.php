@@ -7,8 +7,6 @@
     $idCliente = explode("/",$url);
     $infoCliente = DB::table('clientes')->where('id', $idCliente[5])->get();
     $infoVentas = DB::table('ventas')->where('id_cliente', $idCliente[5])->get(['id','nombreVentas','updated_at']);
-    
-
 
 echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 ?>
@@ -55,9 +53,9 @@ echo "<form method='post' action('ClientesController@update($idCliente[5])') >";
 
 </form>
 <br>
-<button class="btn btn-secondary" onclick="modificar()" >Modificar</button>
+
 <br><br>
-<a href="componentes/formVentas"> 
+<a href="componentes/formVentas/{{$idCliente[5]}}"> 
 	<img align="right" style="height: 5%; width: 5%;" src="https://image.flaticon.com/icons/png/512/306/306232.png">
 </a>
 
