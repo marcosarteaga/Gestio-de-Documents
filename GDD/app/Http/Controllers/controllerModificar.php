@@ -22,7 +22,7 @@ class controllerModificar extends Controller
 			\File::delete(public_path('descargas/public/'.$nombreAnterior));
 			DB::table('documentos')->where('id',$id)->update(['archivo' =>$nombreFichero ]);
 			$documento= $request->file('archivo')->storeAs('public', $nombreFichero);
-			return back();
+			return redirect('/');
 		}catch(Exception $e)
 		{
 			return back()->withErrors(['Error'=>'Error del servidor']);

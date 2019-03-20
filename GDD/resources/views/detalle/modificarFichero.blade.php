@@ -19,4 +19,31 @@ $id = DB::table('documentos')->where('id_venta', $idVenta[5])->get(['id','tipo_d
   </form>
 </div>
 
+
+
+<script>
+  /* Comprobamos que el archivo subido sea de tipo pdf*/
+$(document).ready(function(){
+  $('input[type="file"]').on('change', function(){
+    var comprobarFichero = $( this ).val().split('.').pop();
+      if(comprobarFichero == "pdf"){
+        $('#subir').submit();
+      }
+      else
+      {
+        var errorPdf = ["nopdf"];
+        //createErrorMessage(errorPdf);
+        $('input[type="file"]').val('');
+        
+        
+      }
+
+
+  });
+});
+</script>
+
+
+
+
 @stop
