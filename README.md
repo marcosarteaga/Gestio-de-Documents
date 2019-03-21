@@ -22,23 +22,21 @@
 Nil:
 
 ¿Que a ido mal?
-    -Se aproximo mal las horas.
-    -No se contemplo el refactorizar el codigo,
+    - Se aproximo mal las horas.
+    - No se contemplo el refactorizar el codigo,
      en el caso de que la logica hasta ahora no se pueda usar para seguir con el proyecto.ç
      
 ¿Que podemos mejorar?
-    -Calular mejor las horas por especificacion.
-    -Contemplar el refactorizado en el codigo,
+    - Calular mejor las horas por especificacion.
+    - Contemplar el refactorizado en el codigo,
      en los casos en que la estructura seguida no se pueda usar para las especificaciones futuras.
 
 Marcos:
 
 ¿Que a ido mal?
-     -No hemos contemplado la ampliacion en el codigo.
+     - No hemos contemplado la ampliacion en el codigo.
   
-
-
 ¿Que podemos mejorar?
--Creo que deberiamos plantearnos bien los proyectos antes de empezarlos, ya que luego nos pasa como ahora que no comteplamos todas las ampliaciones.
+     - Creo que deberiamos plantearnos bien los proyectos antes de empezarlos, ya que luego nos pasa como ahora que no comteplamos todas las ampliaciones.
 
 
